@@ -77,6 +77,10 @@
                             <label> Account Password：</label>
                             <input type="text" name="accountPassword" id="accountPassword" value=""/>
                         </div>
+                        <div class="form-group">
+                            <label> Address：</label>
+                            <input type="text" name="address" value=""/>
+                        </div>
 
                         <input class="btn btn-success pull-right" type="submit" value="">
                     </div>
