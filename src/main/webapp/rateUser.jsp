@@ -34,7 +34,7 @@
                 </div>
                 <div class="pure-control-group">
                     <label for="">Rating Score:</label>
-                    <input id="" type="number" placeholder=""  min="0.00" step="0.01" max="5" name="score" required>
+                    <input id="" type="number" placeholder=""  min="0" step="0.01" max="5" name="score" required>
                 </div>
                 <div class="pure-control-group" >
                     <label for="">Description:</label>

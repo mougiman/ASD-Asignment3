@@ -72,13 +72,27 @@
                         <hr>
                         <div> Category: <%=item.getCategory()%> </div>
                         <div> Price: <%=item.getPrice()%> </div>
-                        <div> bid want to add <input type="text" name="bid" value = "0"></div>
+                        <div> bid want to add <input type="number"  min="<%=item.getPrice() + 1%>" step="0.01"  name="bid" value = "0"></div>
                         <div>  <input type="hidden" name="id" value = "<%=item.getID()%>"</div>
                         <div>  <input type="hidden" name="price" value = "<%=item.getPrice()%>"</div>
                         <div> Expiration Date: <%=item.getExpDate()%></div>
 
                         <input type = submit value = "place bid">
                     </div>
+                    <%if (connector.check("11111111", item.getID())) {%>
+                    <form method="post" action="delete.jsp" >
+                        <div>  <input type="hidden" name="id" value = "<%=item.getID()%>"</div>
+                        <input type = submit value = "dislike">
+                    </form>
+                    <%} else {%>
+
+                    <form method="post" action="add.jsp" >
+                        <div>  <input type="hidden" name="id" value = "<%=item.getID()%>"</div>
+                        <input type = submit value = "Like">
+                        </div>
+                    </form>               
+                    <% }
+                    %>
                     <div class="col">
                         <div class="userBox">
                             <div> User Info <div>

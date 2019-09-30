@@ -54,3 +54,4 @@ public class RatingMadeController extends HttpServlet {
         request.getRequestDispatcher("./profile?id="+rated).forward(request, response);
     }
 }
+
