@@ -57,19 +57,19 @@
                     <div>  <input type="hidden" name="id" value = "<%=item.getID()%>"</div>
                     <input type = submit value = "Like">
                     </div>
-                </form>
-
-                <!--Shows the seller info of item-->
+                </form>               
+                <% }
+                    //Reviews of Item
+                %>
+                 <!--Shows the seller info of item-->
                 <div class="col">
                     <div class="userBox">
                         <div><u> User Info </u></div>
                         <div> Listed User : <a href="./profile?id=<%=item.getSellerID()%>" ><%=connector.getusername(item.getSellerID())%></a></div>                 
                         <div> Listed Date: <%=item.getDateListed()%> </div>
                     </div>
-                </div>    
-                <% }
-                    //Reviews of Item
-                %>
+                </div> 
+                    
                 <div class="reviewtitlebox">
                     <h2>Item Reviews</h2>
                     <a href="./review?id=<%=item.getID()%>">Leave a Review</a>
@@ -89,7 +89,7 @@
                 %>
                 <div class="reviewbox">
                     <h3><%=review.getTitle()%></h3>
-                    <h5>by <a href="./profile?id=<%=item.getSellerID()%>"><%=connector.getusername(review.getUserID())%></a></h5>
+                    <h5>by <a href="./profile?id=<%=review.getUserID()%>"><%=connector.getusername(review.getUserID())%></a></h5>
                     <h5><%=review.getDesc()%></h5>
                 </div>
                 <%  }

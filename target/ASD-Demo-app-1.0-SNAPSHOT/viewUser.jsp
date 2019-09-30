@@ -55,20 +55,21 @@
                         </tr> 
                     </table>       
                 </div>
-
-                <!-- Rating  user-->
-                <h2>User Ratings</h2>
-                <a href="./rating?id=<%=user.getID()%>">Leave a Rating</a>
-                <%
-                    ArrayList<Rating> ratings = connector.getUserRatings(user.getID());
-                    for (Rating rating : ratings) {
-                %>
                 <div>
-                    <h3><%=rating.getTitle()%></h3>
-                    <h5>Date Listed: <%=rating.getDateListed()%></h5>
-                    <h5>Score: <%=rating.getScore()%>/5.0</h5>
-                    <h5>by <%=connector.getusername(rating.getUserID())%></h5>
-                    <h4><%=rating.getDesc()%></h4>
+                    <!-- Rating  user-->
+                    <h2>User Ratings</h2>
+                    <a href="./rating?id=<%=user.getID()%>">Leave a Rating</a>
+                    <%
+                        ArrayList<Rating> ratings = connector.getUserRatings(user.getID());
+                        for (Rating rating : ratings) {
+                    %>
+                    <div>
+                        <h3><%=rating.getTitle()%></h3>
+                        <h5>Date Listed: <%=rating.getDateListed()%></h5>
+                        <h5>Score: <%=rating.getScore()%>/5.0</h5>
+                        <h5>by <%=connector.getusername(rating.getUserID())%></h5>
+                        <h4><%=rating.getDesc()%></h4>
+                    </div>
                 </div>
                 <%
                     }

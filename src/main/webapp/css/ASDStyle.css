@@ -193,3 +193,12 @@ hr{
   border-left: 3px solid black;
   height: 500px;
 }
+
+.signup{
+    text-align: center;
+    padding: 10px;
+}
+
+.inputbox{
+    padding: 5px 10px 5px 10px;
+}
