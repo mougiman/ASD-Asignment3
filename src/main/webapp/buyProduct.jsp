@@ -34,7 +34,7 @@
     <body>
         <h1>Product review</h1>
         <jsp:include page="header.jsp"/>    
-        <form method="get" action="buy">
+        <form method="post" action="buy">
             <div class="container">
                 <h1>Product</h1>
 
