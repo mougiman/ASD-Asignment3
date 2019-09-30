@@ -46,14 +46,6 @@
         <url-pattern>/profile/*</url-pattern>
     </servlet-mapping>	
     <servlet>
-        <servlet-name>allUsersController</servlet-name>
-        <servlet-class>asd.demo.controller.allUsersServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>allUsersController</servlet-name>
-        <url-pattern>/users</url-pattern>
-    </servlet-mapping>
-    <servlet>
         <servlet-name>addUsersPageController</servlet-name>
         <servlet-class>asd.demo.controller.addUserPageServlet</servlet-class>
     </servlet>
