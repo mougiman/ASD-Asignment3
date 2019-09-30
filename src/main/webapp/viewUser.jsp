@@ -50,7 +50,7 @@
                             <td class="text-center" colspan="4">
                                 <button onclick="location.href = './sales?id=<%= user.getID()%>'" class="btn btn-primary">Sales History</button>
 
-                                <button onclick="location.href = './order?id=<%= user.getID()%>'" class="btn btn-warning">Order History</button>
+                                <button onclick="location.href = './orderHistory?id=<%= user.getID()%>'" class="btn btn-warning">Order History</button>
                             </td>    
                         </tr> 
                     </table>       

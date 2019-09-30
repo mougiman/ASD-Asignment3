@@ -30,6 +30,8 @@ public class MongoDBConnector {
     MongoCollection<Document> reviews = shopDB.getCollection("Review");
     MongoCollection<Document> ratings = shopDB.getCollection("Rating");
     MongoCollection<Document> WL = shopDB.getCollection("WatchList");
+    MongoCollection<Document> orders = shopDB.getCollection("Order");
+
 
     public MongoDatabase getMongoDB() {
         if (shopDB == null) {
@@ -506,5 +508,33 @@ public class MongoDBConnector {
        }
        return false;
        }
+    
+        //get order list by userId
+        public ArrayList<Order> getOrderList(String id) {
+        List<Document> documents = (List<Document>) orders.find().into(new ArrayList<Document>());
+        ArrayList<Order> orders = new ArrayList<Order>();
+        for (Document document : documents) {
+            String userID = "" + document.get("userID");
+            if(userID.equals(id)){
+            Order order = new Order();                
+            order = new Order("" + document.get("id"), "" + document.get("itemID"), "" + document.get("userID"), "" + document.get("address") , "" + document.get("dateListed") );
+            orders.add(order);
+            }
+        }    
+        return orders;
+    }
+        
+      //Gets the name of the item, which id is given
+      public String getitemname(String id) {
+        List<Document> documents = (List<Document>) dbItems.find().into(new ArrayList<Document>());
+        String name = "";
+        for (Document document : documents) {
+            String itemID = "" + document.get("id");
+            if (itemID.equals(id)) {
+                name = "" + document.get("name");
+            }
+        }
+        return name;
+    }
 
 }

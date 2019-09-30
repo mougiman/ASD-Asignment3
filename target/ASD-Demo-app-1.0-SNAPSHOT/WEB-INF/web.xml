@@ -126,6 +126,17 @@
         <servlet-name>buyLogController</servlet-name>
         <url-pattern>/buy</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>orderHistoryController</servlet-name>
+        <servlet-class>asd.demo.controller.orderHistoryServlet</servlet-class>
+    </servlet>
+        <servlet-mapping>
+        <servlet-name>orderHistoryController</servlet-name>
+        <url-pattern>/orderHistory/*</url-pattern>
+    </servlet-mapping>
+    
+    
+    
     <welcome-file-list>
         <welcome-file>home</welcome-file>
     </welcome-file-list>

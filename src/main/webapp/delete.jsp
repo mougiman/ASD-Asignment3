@@ -23,7 +23,7 @@
         <p>success</p>
   <a href=".\" class="links">Home</a> 
       <a href="./item?id=<%=id%>"> back </a>
-         <a href="./watchlist?id=<%=Uid%>" >> view watch list </a>
+         <a href="./watchlist?id=<%=Uid%>" > view watch list </a>
       
     </body>
      
