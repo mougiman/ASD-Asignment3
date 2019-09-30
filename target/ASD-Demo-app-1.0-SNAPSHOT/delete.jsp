@@ -19,6 +19,9 @@
           
              MongoDBConnector connector = new MongoDBConnector();
               connector.removeWL( Uid,id);
+              
+            String redirect = "./item?id=" + id;
+            response.sendRedirect(redirect);
         %>  
         <p>success</p>
   <a href=".\" class="links">Home</a> 

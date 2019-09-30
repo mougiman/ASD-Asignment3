@@ -12,19 +12,20 @@
         <title>JSP Page</title>
     </head>
     <body>
-       <% 
+        <%
             String id = request.getParameter("id");
             String Uid = "11111111";
-            
-          
-             MongoDBConnector connector = new MongoDBConnector();
-              connector.addWatchlist( Uid,id);
+
+            MongoDBConnector connector = new MongoDBConnector();
+            connector.addWatchlist(Uid, id);
+            String redirect = "./item?id=" + id;
+            response.sendRedirect(redirect);
         %>  
         <p>success</p>
-  <a href=".\" class="links">Home</a> 
-      <a href="./item?id=<%=id%>"> back </a>
-         <a href="./watchlist?id=<%=Uid%>" > view watch list </a>
-      
+        <a href=".\" class="links">Home</a> 
+        <a href="./item?id=<%=id%>"> back </a>
+        <a href="./watchlist?id=<%=Uid%>" >> view watch list </a>
+
     </body>
-     
+
 </html>

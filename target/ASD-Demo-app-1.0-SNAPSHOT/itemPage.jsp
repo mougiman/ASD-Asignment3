@@ -46,6 +46,7 @@
                     <a href="./buy?id=<%=item.getID()%>"> Buy Now! </a>                
                 </div>    
 
+                
                 <%if (connector.check("11111111", item.getID())) {%>
                 <form method="post" action="delete.jsp" >
                     <div>  <input type="hidden" name="id" value = "<%=item.getID()%>"</div>
@@ -59,8 +60,9 @@
                     </div>
                 </form>               
                 <% }
-                    //Reviews of Item
                 %>
+                
+                
                  <!--Shows the seller info of item-->
                 <div class="col">
                     <div class="userBox">
