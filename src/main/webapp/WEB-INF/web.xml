@@ -46,14 +46,6 @@
         <url-pattern>/profile/*</url-pattern>
     </servlet-mapping>	
     <servlet>
-        <servlet-name>adminPageController</servlet-name>
-        <servlet-class>asd.demo.controller.adminPageServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>adminPageController</servlet-name>
-        <url-pattern>/admin</url-pattern>
-    </servlet-mapping>
-    <servlet>
         <servlet-name>allUsersController</servlet-name>
         <servlet-class>asd.demo.controller.allUsersServlet</servlet-class>
     </servlet>
