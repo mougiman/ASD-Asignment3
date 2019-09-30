@@ -29,6 +29,7 @@ public class MongoDBConnector {
     MongoCollection<Document> users = shopDB.getCollection("Users");
     MongoCollection<Document> reviews = shopDB.getCollection("Review");
     MongoCollection<Document> ratings = shopDB.getCollection("Rating");
+    MongoCollection<Document> WL = shopDB.getCollection("WatchList");
 
     public MongoDatabase getMongoDB() {
         if (shopDB == null) {
@@ -474,4 +475,36 @@ public class MongoDBConnector {
         score = score / count;
         return score;
     }
+
+    public void saveBuyLog(String name, String price, String payType) {
+        Document document = new Document("name", name).
+                append("price", price).
+                append("payType", payType);
+        //buyLogs.insertOne(document);
+    }
+
+    public void addWatchlist(String UID, String PID) {
+        Document document = new Document("UserID", UID).
+                append("ProductID", PID);
+        WL.insertOne(document);
+    }
+
+    public void removeWL(String UID, String PID) {
+        Document document = new Document("UserID", UID).
+                append("ProductID", PID);
+        WL.deleteOne(document);
+
+    }
+    
+    public boolean check(String UID, String ID){
+       for (Document doc : WL.find()) {
+           
+           if(doc.get("ProductID").equals( ID) && doc.get("UserID").equals(UID))
+           {
+           return true;
+           }
+       }
+       return false;
+       }
+
 }

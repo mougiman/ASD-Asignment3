@@ -14,7 +14,7 @@
     <body>
        <% 
             String id = request.getParameter("id");
-            String Uid = "961496029";
+            String Uid = "11111111";
             
           
              MongoDBConnector connector = new MongoDBConnector();

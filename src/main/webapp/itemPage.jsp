@@ -30,7 +30,7 @@
                 <% if (error.length() > 0) {%>
                 <%=error%>
                 <%} else {%>
-                
+
                 <!-- Item info-->
                 <div class="col">
                     <h><%=item.getName()%></h>
@@ -43,46 +43,58 @@
                     <div> Price: $<%=item.getPrice()%> </div>
                     <div> Expiration Date: <%=item.getExpDate()%></div>
 
-  <a href="buyProduct.jsp"> Buy Now! </a>                
+                    <a href="buyProduct.jsp"> Buy Now! </a>                
                 </div>    
-                    <!--Shows the seller info of item-->
-                <div class="col">
-                    <div class="userBox">
-                        <div><u> User Info </u></div>
-                        <div> Listed User : <a href="./profile?id=<%=item.getSellerID()%>" ><%=connector.getusername(item.getSellerID())%></a></div>                 
-                        <div> Listed Date: <%=item.getDateListed()%> </div>
-                    </div>
-                </div>    
-                <% }
-                    //Reviews of Item
-%>
-                <div class="reviewtitlebox">
-                    <h2>Item Reviews</h2>
-                    <a href="./review?id=<%=item.getID()%>">Leave a Review</a>
-                       
-                       
-                    <form method="post" action="review.jsp">
-                        <input type="HIDDEN" name="id" value="<%=item.getID()%>">
-                        <input type="HIDDEN" name="name" value="<%=item.getName()%>">
-                        <input class="" type="submit" value="Leave a Review">
-                    </form> 
-                </div>
-                <%
-                    //This retrieves all review data from the DB that contains the same ItemId as the item
-                    ArrayList<Review> reviews = connector.getItemReviews(item.getID());
-                    for (Review review : reviews) {
-                    //Displays review Title, links to reviewer page and review Description
-%>
-                <div class="reviewbox">
-                    <h3><%=review.getTitle()%></h3>
-                    <h5>by <a href="./profile?id=<%=item.getSellerID()%>"><%=connector.getusername(review.getUserID())%></a></h5>
-                    <h5><%=review.getDesc()%></h5>
-                </div>
-                <%  }
-                    }
-                %>  
-            </div>        
-        </div>
-        <% //connector.closeConnection();%>
-    </body>
-</html>
+
+                <%if (connector.check("11111111", item.getID())) {%>
+                <form method="post" action="delete.jsp" >
+                    <div>  <input type="hidden" name="id" value = "<%=item.getID()%>"</div>
+                    <input type = submit value = "dislike">
+                    <%} else {%>
+
+                    <form method="post" action="add.jsp" >
+                        <div>  <input type="hidden" name="id" value = "<%=item.getID()%>"</div>
+                        <input type = submit value = "Like">
+                        </div>
+
+                        <!--Shows the seller info of item-->
+                        <div class="col">
+                            <div class="userBox">
+                                <div><u> User Info </u></div>
+                                <div> Listed User : <a href="./profile?id=<%=item.getSellerID()%>" ><%=connector.getusername(item.getSellerID())%></a></div>                 
+                                <div> Listed Date: <%=item.getDateListed()%> </div>
+                            </div>
+                        </div>    
+                        <% }
+                            //Reviews of Item
+                        %>
+                        <div class="reviewtitlebox">
+                            <h2>Item Reviews</h2>
+                            <a href="./review?id=<%=item.getID()%>">Leave a Review</a>
+
+
+                            <form method="post" action="review.jsp">
+                                <input type="HIDDEN" name="id" value="<%=item.getID()%>">
+                                <input type="HIDDEN" name="name" value="<%=item.getName()%>">
+                                <input class="" type="submit" value="Leave a Review">
+                            </form> 
+                        </div>
+                        <%
+                            //This retrieves all review data from the DB that contains the same ItemId as the item
+                            ArrayList<Review> reviews = connector.getItemReviews(item.getID());
+                            for (Review review : reviews) {
+                                //Displays review Title, links to reviewer page and review Description
+                        %>
+                        <div class="reviewbox">
+                            <h3><%=review.getTitle()%></h3>
+                            <h5>by <a href="./profile?id=<%=item.getSellerID()%>"><%=connector.getusername(review.getUserID())%></a></h5>
+                            <h5><%=review.getDesc()%></h5>
+                        </div>
+                        <%  }
+                            }
+                        %>  
+                        </div>        
+                        </div>
+                        <% //connector.closeConnection();%>
+                        </body>
+                        </html>

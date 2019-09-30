@@ -142,7 +142,22 @@
         <servlet-name>addUsersController</servlet-name>
         <url-pattern>/addUser</url-pattern>
     </servlet-mapping>
-    
+        <servlet>
+    <servlet-name>WatchListController</servlet-name>
+        <servlet-class>asd.demo.controller.WatchListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WatchListController</servlet-name>
+        <url-pattern>/watchlist</url-pattern>
+    </servlet-mapping>
+      <servlet>
+        <servlet-name>buyLogController</servlet-name>
+        <servlet-class>asd.demo.controller.BuyLogController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>buyLogController</servlet-name>
+        <url-pattern>/buy</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home</welcome-file>
     </welcome-file-list>
