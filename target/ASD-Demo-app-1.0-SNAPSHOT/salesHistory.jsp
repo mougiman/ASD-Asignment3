@@ -31,6 +31,8 @@
                 <% if (error.length() > 0) {%>
                 <%=error%>
                 <%} else {%>
+                                    <h2>Sales History</h2>>
+
                 <div class="col">
                     <p><img src="<%=item.getImage()%>" style="width:100px; height:100px;"/><%=item.getName()%></p>                
                     <div> Category: <%=item.getCategory()%> </div>

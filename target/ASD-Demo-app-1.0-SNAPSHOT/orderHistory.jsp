@@ -18,30 +18,33 @@
     <body>  
         <jsp:include page="header.jsp"/>    
         <div>
-                 <%
+            <%
                 String UserID = request.getParameter("id");
                 MongoDBConnector connector = new MongoDBConnector();
                 ArrayList<Order> orders = connector.getOrderList(UserID);
                 String error = (String) request.getAttribute("err");
                 for (Order order : orders) {
-                if (order != null) {
+                    if (order != null) {
             %>
             <div class="orderHistory">
                 <!-- Display errors -->
                 <% if (error.length() > 0) {%>
                 <%=error%>
                 <%} else {%>
+                <h2>Order History</h2>>
+
                 <div class="col">
                     <div> Item : <a href="./item?id=<%=order.getItemID()%>" ><%=connector.getitemname(order.getItemID())%></a></div>                 
                     <div> Date: <%=order.getDateListed()%> </div>
+                    <div> Address: <%=order.getAddress()%> </div>
                     <hr>
                 </div>    
             </div> 
-        <%                   
+            <%
+                        }
                     }
-                    }
-                    }
-        %>
+                }
+            %>
         </div>
         <% //connector.closeConnection();%>
     </body>
