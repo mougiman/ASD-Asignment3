@@ -7,6 +7,7 @@
  */
 package asd.demo.model.dao;
 
+import asd.demo.model.Item;
 import java.net.UnknownHostException;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
@@ -479,10 +480,13 @@ public class MongoDBConnector {
         return score;
     }
 
-    public void saveBuyLog(String name, String price, String payType) {
-        Document document = new Document("name", name).
-                append("price", price).
-                append("payType", payType);
+    public void saveBuyOrder(Item item, String payType, String address,userID) {
+        Document document = new Document("itemID", item.getItemID()).
+                append("price", item.getPrice()).
+                append("userID", userID).
+                append("dateListed", item.getDateListed()).
+                append("address", address).
+                append("method", payType);
         buyLogs.insertOne(document);
     }
 
