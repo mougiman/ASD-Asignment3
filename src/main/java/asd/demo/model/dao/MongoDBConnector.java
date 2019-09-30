@@ -31,6 +31,7 @@ public class MongoDBConnector {
     MongoCollection<Document> ratings = shopDB.getCollection("Rating");
     MongoCollection<Document> WL = shopDB.getCollection("WatchList");
     MongoCollection<Document> orders = shopDB.getCollection("Order");
+    MongoCollection<Document> buyLogs = shopDB.getCollection("Order");
 
 
     public MongoDatabase getMongoDB() {
@@ -482,7 +483,7 @@ public class MongoDBConnector {
         Document document = new Document("name", name).
                 append("price", price).
                 append("payType", payType);
-        //buyLogs.insertOne(document);
+        buyLogs.insertOne(document);
     }
 
     public void addWatchlist(String UID, String PID) {
