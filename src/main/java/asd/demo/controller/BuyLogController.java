@@ -19,12 +19,14 @@ public class BuyLogController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
+        User user = session.getAttribute("userLogin");
         String itemID = request.getParameter("itemID");
-        String payType = request.getParameter("pay");
+        String payType = request.getParameter("payType");
+        String address = request.getParameter("address");
 
         MongoDBConnector connector = new MongoDBConnector();
         Item item = connector.getItem(itemID);
-        connector.saveBuyOrder(item, payType);
+        connector.saveBuyOrder(item, payType, address, user.getID());
         request.getRequestDispatcher("buyResult.jsp").forward(request, response);
     }
 
