@@ -35,7 +35,7 @@
     <body>
         <h1>Product review</h1>
         <jsp:include page="header.jsp"/>    
-        <form method="post" action="buy">
+        <form method="get" action="buy">
             <div class="container">
                 <h1>Product</h1>
 
@@ -66,7 +66,7 @@
                             <input type="radio" name="pay" value="2">PayPal
                         </div>
 
-                        <input class="btn btn-success pull-right" type="submit" value="Buy">
+                        <input class="btn btn-success pull-right" type="submit" value="">
                     </div>
                 </div>
             </div>

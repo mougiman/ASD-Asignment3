@@ -18,6 +18,7 @@
     <body>  
         <jsp:include page="header.jsp"/>    
         <div>
+                            <h2>Order History</h2>
             <%
                 String UserID = request.getParameter("id");
                 MongoDBConnector connector = new MongoDBConnector();
@@ -31,7 +32,6 @@
                 <% if (error.length() > 0) {%>
                 <%=error%>
                 <%} else {%>
-                <h2>Order History</h2>>
 
                 <div class="col">
                     <div> Item : <a href="./item?id=<%=order.getItemID()%>" ><%=connector.getitemname(order.getItemID())%></a></div>                 

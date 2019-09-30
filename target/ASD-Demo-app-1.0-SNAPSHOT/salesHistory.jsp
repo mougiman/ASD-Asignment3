@@ -18,6 +18,7 @@
     <body>  
         <jsp:include page="header.jsp"/>    
         <div>
+            <h2>Sales History</h2>
             <%
                 String sellerId = request.getParameter("id");
                 MongoDBConnector connector = new MongoDBConnector();
@@ -28,11 +29,11 @@
             %>
             <div class="salesHistory">
                 <!-- Display errors -->
+                
                 <% if (error.length() > 0) {%>
                 <%=error%>
                 <%} else {%>
-                                    <h2>Sales History</h2>>
-
+                                   
                 <div class="col">
                     <p><img src="<%=item.getImage()%>" style="width:100px; height:100px;"/><%=item.getName()%></p>                
                     <div> Category: <%=item.getCategory()%> </div>
