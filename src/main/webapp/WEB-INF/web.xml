@@ -46,14 +46,6 @@
         <url-pattern>/profile/*</url-pattern>
     </servlet-mapping>	
     <servlet>
-        <servlet-name>addUsersPageController</servlet-name>
-        <servlet-class>asd.demo.controller.addUserPageServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>addUsersPageController</servlet-name>
-        <url-pattern>/addUserPage</url-pattern>
-    </servlet-mapping>
-    <servlet>
         <servlet-name>addUsersController</servlet-name>
         <servlet-class>asd.demo.controller.addUserServlet</servlet-class>
     </servlet>
@@ -117,14 +109,6 @@
     <servlet-mapping>
         <servlet-name>addUsersPageController</servlet-name>
         <url-pattern>/addUserPage</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>addUsersController</servlet-name>
-        <servlet-class>asd.demo.controller.addUserServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>addUsersController</servlet-name>
-        <url-pattern>/addUser</url-pattern>
     </servlet-mapping>
         <servlet>
     <servlet-name>WatchListController</servlet-name>
