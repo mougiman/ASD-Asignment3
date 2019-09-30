@@ -56,14 +56,16 @@
                     </table>       
                 </div>
                 <div>
+                    <div>
                     <!-- Rating  user-->
                     <h2>User Ratings</h2>
                     <a href="./rating?id=<%=user.getID()%>">Leave a Rating</a>
+                    </div>
                     <%
                         ArrayList<Rating> ratings = connector.getUserRatings(user.getID());
                         for (Rating rating : ratings) {
                     %>
-                    <div>
+                    <div class="reviewbox">
                         <h3><%=rating.getTitle()%></h3>
                         <h5>Date Listed: <%=rating.getDateListed()%></h5>
                         <h5>Score: <%=rating.getScore()%>/5.0</h5>

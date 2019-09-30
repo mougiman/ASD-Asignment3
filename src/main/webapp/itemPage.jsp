@@ -43,7 +43,7 @@
                     <div> Price: $<%=item.getPrice()%> </div>
                     <div> Expiration Date: <%=item.getExpDate()%></div>
 
-                    <a href="buyProduct.jsp"> Buy Now! </a>                
+                    <a href="./buy?id=<%=item.getID()%>"> Buy Now! </a>                
                 </div>    
 
                 <%if (connector.check("11111111", item.getID())) {%>
