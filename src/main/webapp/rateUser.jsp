@@ -51,6 +51,7 @@
         <%
         } else if (rating != null) {
             connector.addRating(rating);
+
         %>
         <h2>Thank you for your Rating</h2>
         <a href=".\">Return to main page</a>

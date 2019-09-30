@@ -47,8 +47,10 @@ public class RatingMadeController extends HttpServlet {
             errMsg = "User for Rating not found, Please look for another User to Rate.";
             request.setAttribute("err", errMsg);
         } else {
-            request.setAttribute("rating", rating);
+            //request.setAttribute("rating", rating);
+            connector.addRating(rating);
+
         }
-        request.getRequestDispatcher("rateUser.jsp").forward(request, response);
+        request.getRequestDispatcher("./profile?id="+rated).forward(request, response);
     }
 }
