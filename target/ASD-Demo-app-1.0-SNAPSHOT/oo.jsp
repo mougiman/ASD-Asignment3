@@ -13,24 +13,26 @@
         <title>Auction Page</title>
     </head>
     <body>
-            <jsp:include page="header.jsp"/>
-       <% 
+        <jsp:include page="header.jsp"/>
+        <%
             String id = request.getParameter("id");
             double bid = Double.parseDouble(request.getParameter("bid"));
-             double price = Double.parseDouble(request.getParameter("price"));
-            if(bid <=price)
-            {
-            %>
-            <h1> bid is too small</h1>
-              <a href=".\" class="links">Home</a> 
-      <a href="./item?id=<%=id%>"> back </a>
-           <%   }else{
-              MongoDBConnector connector = new MongoDBConnector();
-              connector.changePrice(request.getParameter("id"), Double.parseDouble(request.getParameter("bid")));   
+            double price = Double.parseDouble(request.getParameter("price"));
+            if (bid <= price) {
+        %>
+        <h1> bid is too small</h1>
+        <a href=".\" class="links">Home</a> 
+        <a href="./item?id=<%=id%>"> back </a>
+        <%   } else {
+            MongoDBConnector connector = new MongoDBConnector();
+            connector.changePrice(request.getParameter("id"), Double.parseDouble(request.getParameter("bid")));
+
+            String redirect = "./item?id=" + id;
+            response.sendRedirect(redirect);
         %>  
         <h1>success</h1>
-  <a href=".\" class="links">Home</a> 
-      <a href="./item?id=<%=id%>"> back </a>
+        <a href=".\" class="links">Home</a> 
+        <a href="./item?id=<%=id%>"> back </a>
     </body>
-     <% }%>
+    <% }%>
 </html>
