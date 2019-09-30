@@ -1,0 +1,16 @@
+asd\demo\model\ItemList.class
+asd\demo\model\Users.class
+asd\demo\controller\adminPageServlet.class
+asd\demo\controller\ShutDownHook$1.class
+asd\demo\model\User.class
+asd\demo\controller\allUsersServlet.class
+asd\demo\model\Rating.class
+asd\demo\controller\RegisterController.class
+asd\demo\controller\CustomComparator.class
+asd\demo\model\Review.class
+asd\demo\controller\ShutDownHook.class
+asd\demo\model\Item.class
+asd\demo\controller\HomeController.class
+asd\demo\model\dao\MongoDBConnector.class
+asd\demo\controller\itemServlet.class
+asd\demo\controller\sellerServlet.class
