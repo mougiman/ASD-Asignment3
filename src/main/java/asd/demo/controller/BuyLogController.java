@@ -15,24 +15,25 @@ import javax.servlet.http.HttpSession;
  * @author George
  */
 public class BuyLogController extends HttpServlet {
-    /*
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        String name = request.getParameter("name");
-        String price = request.getParameter("price");
-        String payType = request.getParameter("pay");
+        User user = session.getAttribute("userLogin");
+        String itemID = request.getParameter("itemID");
+        String payType = request.getParameter("payType");
+        String address = request.getParameter("address");
 
         MongoDBConnector connector = new MongoDBConnector();
-        connector.saveBuyLog(name, price, payType);
-        request.getRequestDispatcher("itemPage.jsp").include(request, response);
+        Item item = connector.getItem(itemID);
+        connector.saveBuyOrder(item, payType, address, user.getID());
+        request.getRequestDispatcher("buyResult.jsp").forward(request, response);
     }
-    */
+
      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         MongoDBConnector connector = new MongoDBConnector();
         String id = request.getParameter("id"); //Gets item id from url 
-        Item item = connector.getItem(id);
+        
         String errMsg = "";
         request.setAttribute("err", errMsg);
         //Error checks
