@@ -1,0 +1,102 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 04/10/2019, 9:38:19 AM
+    Author     : mougi
+
+#dadee1 - light grey
+#e7e9e8 - pale grey
+#c22126 - rose red
+#50575f - dark grey
+#c6c8c7 - beige
+*/
+
+body{
+    background-color: #dadee1;
+    margin: 0;
+}
+
+.title{
+    color: #c22126;
+    text-decoration: none;
+    font-style: normal;
+    font-size: 48px;
+    font-weight: bold;
+    font-family: Helvetica,Arial,sans-serif;
+    padding: 10px;
+}
+
+.links{
+    display: inline-block;
+    color: #e7e9e8;
+    text-decoration: none;
+    font-style: normal;
+    font-size: 12px;
+    font-family: Helvetica,Arial,sans-serif;
+    padding: 10px 20px 10px 20px;
+    border-radius: 2px;
+    border-right: 2px solid #50575f;
+}
+
+h{
+    font-size: 32px;
+    width:40%;
+    color: #e7e9e8;
+    padding: 0px 30px 10px 20px;
+}
+
+p{
+    color: #e7e9e8;
+    text-decoration: none;
+    font-style: normal;
+    font-size: 12px;
+    font-family: Helvetica,Arial,sans-serif;
+    padding: 10px;
+}
+
+.navbar{
+    background-color: #e7e9e8; 
+    margin: auto;
+}
+
+.container{
+    width:100%;
+}
+
+.itemList{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: center;
+}
+
+a{
+    color: #e7e9e8;
+    text-decoration: none;
+    font-style: normal;
+    font-size: 12px;
+    font-family: Helvetica,Arial,sans-serif;
+    padding: 10px;
+}
+.row{
+   padding: 20px 0px 0px 20px;
+   display:flex;
+}
+
+.itemCard{
+    text-align: center;
+    width: 200px;
+    height: 250px;
+    margin: 20px 20px;
+    background-color: #c6c8c7;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.mainBox{
+    width: 100%;
+    line-height: 30px; 
+}

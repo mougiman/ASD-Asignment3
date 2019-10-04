@@ -478,9 +478,9 @@ public class MongoDBConnector {
         score = score / count;
         return score;
     }
-
-    public void saveBuyOrder(Item item, String payType, String address,userID) {
-        Document document = new Document("itemID", item.getItemID()).
+        //This is completely broken and dumb, each order should have its own id
+    public void saveBuyOrder(Item item, String payType, String address, String userID) {
+        Document document = new Document("itemID", item.getID()).
                 append("price", item.getPrice()).
                 append("userID", userID).
                 append("dateListed", item.getDateListed()).

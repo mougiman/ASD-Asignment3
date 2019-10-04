@@ -11,11 +11,11 @@
 <html>
     <header>      
         <title>Barter-Mart</title>
-        <link rel="stylesheet" href="css/ASDStyle.css">
+        <link rel="stylesheet" href="css/BetterASDStyle.css">
     </header>
 
 
-      <div class="title">Sell n Buy / Barter-Mart</div>
+      <div class="title">Sell n' Buy</div>
     <% User user = (User) session.getAttribute("userLogin"); %>                                 
     <div class ="navbar">
         <span class="leftalign">
