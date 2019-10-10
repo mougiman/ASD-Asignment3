@@ -16,7 +16,7 @@
 
     <head>
         <title>Item Page</title>
-        <link rel="stylesheet" href="css/ASDStyle.css">
+        <link rel="stylesheet" href="css/BetterASDStyle.css">
     </head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type=text/javascript> type = "text/javascript" ></script>

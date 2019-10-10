@@ -16,7 +16,7 @@
     </header>
 
 
-    <div class="title, hozfloat">
+    <div class="title">
         <div>
             <h2>Sell n' Buy</h2>
         </div>
