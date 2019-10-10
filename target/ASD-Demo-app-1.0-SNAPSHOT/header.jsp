@@ -12,28 +12,31 @@
     <header>      
         <title>Barter-Mart</title>
         <link rel="stylesheet" href="css/BetterASDStyle.css">
-                <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
     </header>
 
 
-    <div class="title">
-        <h2>Sell n' Buy</h2>
-
-        <form action="./home">
-            <div class="pure-control-group">
-                <input type="text" name="searchText">
-                <input type="submit" name="search" value="Search">
-            </div>
-            <br>
-            <input type="radio" name="searchType" value="item" checked> Search for Item </input>
-            <input type="radio" name="searchType" value="category"> Search for Category </input>
-            <br>
-            <select name="sort">
-                <option value="null"> Sort By </option>
-                <option value="lowToHigh"> Price - Low to High </option>
-                <option value="highToLow"> Price - High to low </option>
-            </select>       
-        </form>
+    <div class="title, hozfloat">
+        <div>
+            <h2>Sell n' Buy</h2>
+        </div>
+        <div>
+            <form action="./home">
+                <div class="pure-control-group">
+                    <input type="text" name="searchText">
+                    <input type="submit" name="search" value="Search">
+                </div>
+                <br>
+                <input type="radio" name="searchType" value="item" checked> Search for Item </input>
+                <input type="radio" name="searchType" value="category"> Search for Category </input>                
+                <select name="sort">
+                    <option value="null"> Sort By </option>
+                    <option value="lowToHigh"> Price - Low to High </option>
+                    <option value="highToLow"> Price - High to low </option>
+                </select>   
+                <br>
+            </form>
+        </div>
     </div>
     <% User user = (User) session.getAttribute("userLogin"); %>                                 
     <div class ="navbar">

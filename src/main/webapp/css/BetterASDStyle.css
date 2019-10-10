@@ -218,3 +218,8 @@ hr{
 .inputbox{
     padding: 5px 10px 5px 10px;
 }
+
+.hozfloat{
+    float: left;
+    clear: none; 
+}
