@@ -104,8 +104,6 @@ a{
 
 
 
-
-
 .userBox{
     width: 30%;
     margin: auto;
@@ -221,5 +219,9 @@ hr{
 
 .hozfloat{
     float: left;
-    clear: none; 
+    margin: 10px;
+}
+
+h2{
+    color: white
 }
