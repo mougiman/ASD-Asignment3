@@ -11,7 +11,7 @@
 <html>
     <%
         //Attributes recieved from itemServlet
-        Item item = (Item) request.getAttribute("item");
+        Item item = (Item) request.getAttribute("buy_product_item");
         String error = (String) request.getAttribute("err");
         MongoDBConnector connector = new MongoDBConnector();
         if (item != null) {
