@@ -82,7 +82,7 @@
                             <input type="text" name="address" value=""/>
                         </div>
 
-                        <input class="btn btn-success pull-right" type="submit" value="">
+                        <input class="btn btn-success pull-right" type="submit" value="Buy">
                     </div>
                 </div>
             </div>
