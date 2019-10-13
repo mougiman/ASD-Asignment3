@@ -76,14 +76,7 @@
                     
                 <div class="reviewtitlebox">
                     <h2>Item Reviews</h2>
-                    <a href="./review?id=<%=item.getID()%>">Leave a Review</a>
-
-
-                    <form method="post" action="review.jsp">
-                        <input type="HIDDEN" name="id" value="<%=item.getID()%>">
-                        <input type="HIDDEN" name="name" value="<%=item.getName()%>">
-                        <input class="" type="submit" value="Leave a Review">
-                    </form> 
+                    <a class="searchbutton" href="./review?id=<%=item.getID()%>">Leave a Review</a>
                 </div>
                 <%
                     //This retrieves all review data from the DB that contains the same ItemId as the item

@@ -46,11 +46,11 @@
                     User user2 = (User) session.getAttribute("userLogin"); 
                    if (user2 != null){  
                     %>
-                <input type="HIDDEN" name="rater" value="11111111">
+                <input type="HIDDEN" name="rater" value="<%=user2.getID()%>">
                 <%
                     }else{
                 %>
-                <input type="HIDDEN" name="rater" value="<%=user2.getID()%>">
+                <input type="HIDDEN" name="rater" value="11111111">
                 <%
                     }
                     %>
