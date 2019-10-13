@@ -39,10 +39,21 @@
                 <div class="pure-control-group" >
                     <label for="">Description:</label>
                     <textarea name = "desc" class="pure-input-1-2" placeholder="This user...." required></textarea>
-                </div>           
+                </div>                        
                 <input type="HIDDEN" name="rated" value="<%=user.getID()%>">
                 <input type="HIDDEN" name="id" value="<%=user.getID()%>">
+                  <%
+                    User user2 = (User) session.getAttribute("userLogin"); 
+                   if (user2 != null){  
+                    %>
                 <input type="HIDDEN" name="rater" value="11111111">
+                <%
+                    }else{
+                %>
+                <input type="HIDDEN" name="rater" value="<%=user2.getID()%>">
+                <%
+                    }
+                    %>
                 <div class="pure-controls">
                     <button type="submit" class="pure-button pure-button-primary">Submit</button>
                 </div>

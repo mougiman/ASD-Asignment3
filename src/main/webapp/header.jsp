@@ -12,19 +12,18 @@
     <header>      
         <title>Barter-Mart</title>
         <link rel="stylesheet" href="css/BetterASDStyle.css">
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
     </header>
 
 
     <div class="title">
-        <div>
+        <div style="display: inline-block">
             <h2>Sell n' Buy</h2>
         </div>
-        <div>
+        <div class="searchbar">
             <form action="./home">
-                <div class="pure-control-group">
+                <div class="">
                     <input type="text" name="searchText">
-                    <input type="submit" name="search" value="Search">
+                    <input type="submit" name="search" value="Search" class="searchbutton">
                 </div>
                 <br>
                 <input type="radio" name="searchType" value="item" checked> Search for Item </input>

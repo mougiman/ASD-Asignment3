@@ -86,7 +86,7 @@
             Double itemPrice = Double.parseDouble(request.getParameter("itemPrice"));
             String itemDateListed = "" + java.time.LocalDate.now();
             int itemQuantity = Integer.parseInt(request.getParameter("itemQuantity"));
-            String itemSellerID = "11111111";
+            String itemSellerID = user.getID();
             Random rand = new Random();
             String itemID = "" + rand.nextInt(999999999);
             String img = request.getParameter("img");

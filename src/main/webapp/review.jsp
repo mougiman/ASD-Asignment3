@@ -4,6 +4,7 @@
     Author     : mougi
 --%>
 
+<%@page import="asd.demo.model.User"%>
 <%@page import="java.util.Random"%>
 <%@page import="asd.demo.model.Item"%>
 <%@page import="asd.demo.model.dao.MongoDBConnector"%>
@@ -32,7 +33,7 @@
                 String name = request.getParameter("name");
 
                 if (title == null) {            //if the page has not retrieved the title of the review, display form, or else display success message
-        %>
+%>
         <h1>Review of <%=name%></h1>
         <form class="pure-form pure-form-aligned formbox" action="./review?id=<%=item.getID()%>">
             <fieldset>
@@ -45,7 +46,20 @@
                     <textarea name = "desc" class="pure-input-1-2" placeholder="This item...." required></textarea>
                 </div>           
                 <input type="HIDDEN" name="item" value="<%=item%>">
+
+                <%
+                    User user2 = (User) session.getAttribute("userLogin");
+                    if (user2 != null) {
+                %>
                 <input type="HIDDEN" name="userid" value="11111111">
+                <%
+                } else {
+                %>
+                <input type="HIDDEN" name="userid" value="<%=user2.getID()%>">
+                <%
+                    }
+                %>
+
                 <div class="pure-controls">
                     <button type="submit" class="pure-button pure-button-primary">Submit</button>
                 </div>
@@ -62,10 +76,10 @@
             //This function add reviews to database
             connector.addReview(id, itemid, userid, desc, title, DateListed);
             //display Success message
-        %>
+%>
         <h2>Thank you for your review</h2>
         <a href=".\">Return to main page</a>
-        <a href="./item??id=<%=itemid%>">Return to item's page</a>
+           <a href="./item??id=<%=itemid%>">Return to item's page</a>
 
         <%            }
         } else {
