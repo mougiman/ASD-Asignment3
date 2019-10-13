@@ -17,17 +17,17 @@
 
     <div class="title">
         <div style="display: inline-block">
-            <h2>Sell n' Buy</h2>
+            <h2 style="size: 96px">Sell n' Buy</h2>
         </div>
         <div class="searchbar">
             <form action="./home">
                 <div class="">
-                    <input type="text" name="searchText">
+                    <input type="text" name="searchText" style="width: 128px; height: 30px">
                     <input type="submit" name="search" value="Search" class="searchbutton">
                 </div>
                 <br>
-                <input type="radio" name="searchType" value="item" checked> Search for Item </input>
-                <input type="radio" name="searchType" value="category"> Search for Category </input>                
+                <input type="radio" name="searchType" value="item" style="size: 24px" checked > Search for Item </input>
+                <input type="radio" name="searchType" value="category" style="size: 24px" > Search for Category </input>                
                 <select name="sort">
                     <option value="null"> Sort By </option>
                     <option value="lowToHigh"> Price - Low to High </option>
