@@ -4,6 +4,7 @@
     Author     : Mougi
 --%>
 
+<%@page import="asd.demo.model.User"%>
 <%@page import="asd.demo.model.dao.MongoDBConnector"%>
 <%@page import="java.util.Random"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -19,14 +20,21 @@
     <body>
         <jsp:include page="header.jsp"/>
 
+                <h1>List an Item</h1>
+        <!--If user is logged in then show the user form, all data is required-->
+            <% 
+                User user = (User) session.getAttribute("userLogin"); 
+                   if (user != null){  
+            %>          
+        
         <%  // This establishes the connection to the MongoDBConnector
             MongoDBConnector connector = new MongoDBConnector();
             //this is code that changes the page depending on if the user has listed an item properly
             String itemName = request.getParameter("itemName");
             if (itemName == null) {
         %>
-        <h1>List an Item</h1>
-        <!--If user is logged in then show the user form, all data is required-->
+                      
+            
         <form class="pure-form pure-form-aligned formbox" method="post" action="listItem.jsp" >
             <fieldset>
                 <div class="pure-control-group">
@@ -91,7 +99,13 @@
         <a href="listItem.jsp">List another item</a>
         <%
             }
+}else{
         %>
-
+        <p>You must be logged in to list an item</p>
+        <p>Log in <a href="login.jsp">here</a></p>
+        <p>Register a new account <a href="register.jsp">here</a></p>
+        <%
+            }
+            %>
     </body>
 </html>
