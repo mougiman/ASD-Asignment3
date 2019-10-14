@@ -8,6 +8,7 @@ package asd.demo.controller;
 import asd.demo.model.User;
 import asd.demo.model.dao.MongoDBConnector;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,21 +26,46 @@ public class addUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         MongoDBConnector connector = new MongoDBConnector();
+        ArrayList<String> errors = new ArrayList<String>();
         String id = request.getParameter("id");
-        String name = request.getParameter("username");
+        String name = request.getParameter("name");
+        
+        //Validation for email structure
         String email = request.getParameter("email");
+        if(!email.contains("@") || !email.contains(".")){
+            errors.add("Please enter valid email");
+        }
+        
+        //Validation for password length
         String password = request.getParameter("password");
+        if(password.length() < 8){
+            errors.add("Password must have at least 8 characters");
+        }
+        
+        //Validation for phone length
         String phone = request.getParameter("phone");
-        Boolean isAdmin;
-        if((request.getParameterValues("admin")).equals("on")){
-            isAdmin = true;
+        System.out.println(phone.length());
+        if(phone.length() != 10){
+            errors.add("Phone number must be 10 numbers");
+        }
+        
+        //Shows true if admin checkbox is checked
+        Boolean isAdmin = request.getParameter("admin").equals("on");
+        
+        if(errors.size() > 0){
+            request.setAttribute("errors", errors);
+            request.getRequestDispatcher("addUser.jsp").forward(request, response);
         }
         else{
-            isAdmin = false;
+            //Adding new user to database
+            connector.addAUser(id, name, email, password, phone, isAdmin);
+            ArrayList<User> users = connector.getUserList().getList();
+            request.setAttribute("Users", users);
+
+            //Setting Success Message
+            String message = name + "has been Successfully Registered";
+            request.setAttribute("msg", message);
+            request.getRequestDispatcher("allUsers.jsp").forward(request, response);
         }
-        connector.add(new User(id, name, email, password, phone, isAdmin));
-        String message = "User Added";
-        request.setAttribute("msg", message);
-        request.getRequestDispatcher("addUser.jsp").forward(request, response);
     }
 }

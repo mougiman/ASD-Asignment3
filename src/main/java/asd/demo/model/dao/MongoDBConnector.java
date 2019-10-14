@@ -387,6 +387,17 @@ public class MongoDBConnector {
                 append("phone", phone);
         users.insertOne(document);
     }
+	
+	 // Add a user to the database
+    public void addAUser(String id, String name, String email, String password, String phone, boolean isAdmin) {
+        Document document = new Document("id", id).
+                append("name", name).
+                append("email", email).
+                append("password", password).
+                append("phone", phone).
+                append("isAdmin", isAdmin);
+        users.insertOne(document);
+    }
 
     //Get Item with  matching sellerID
     public ArrayList<Item> getItemList(String id) {
@@ -454,6 +465,28 @@ public class MongoDBConnector {
         }
 
         return user;
+    }
+	
+	//Deletes a item from database
+    public void deleteItem(String id){
+        List<Document> documents = (List<Document>) dbItems.find().into(new ArrayList<Document>());
+        for (Document document : documents) {
+            String itemId = "" + document.get("id");
+            if (itemId.equals(id)) {
+                dbItems.deleteOne(document);
+            }
+        }
+    }
+    
+    //Deletes a user from database
+    public void deleteUser(String id){
+        List<Document> documents = (List<Document>) users.find().into(new ArrayList<Document>());
+        for (Document document : documents) {
+            String itemId = "" + document.get("id");
+            if (itemId.equals(id)) {
+                users.deleteOne(document);
+            }
+        }
     }
 
     public void changePrice(String itemId, double price) {

@@ -13,20 +13,22 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Admin Page</title>
-        <link rel="stylesheet" href="css/BetterASDStyle.css">
+        <link rel="stylesheet" href="css/ASDStyle.css">
         
         
     </head>
     <body>
         <jsp:include page="header.jsp"/>
-        <h> Admin page</h>
+        <div class="row">
+            <h> Admin page</h>
+        </div>
         <div class="container">
             <div class="col">
                 <div> Username: Calvin </div> 
             </div>
             <div class="col">
                 <a href="./users" class="button"> Manage users </a>
-                <a href="allListings.jsp" class="button"> Manage listings </a>
+                <a href="./allItems" class="button"> Manage listings </a>
             </div>
         </div>
     </body>

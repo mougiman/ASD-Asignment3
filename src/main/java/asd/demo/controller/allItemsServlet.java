@@ -14,14 +14,15 @@ import javax.servlet.http.HttpServletResponse;
  * @author Calvin
  */
 
-@WebServlet("/allUsersServ")
-public class allUsersServlet extends HttpServlet {
+@WebServlet("/allItems")
+public class allItemsServlet extends HttpServlet {
    public void doGet(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException{
+       //Grabs all items from database
        MongoDBConnector connector = new MongoDBConnector();
-       Users userList = connector.getUserList();
-       ArrayList<User> users = userList.getList();
-       request.setAttribute("Users", users);
-       request.getRequestDispatcher("allUsers.jsp").forward(request, response);
+       ItemList itemList = connector.getItemList();
+       ArrayList<Item> items = itemList.getList();
+       request.setAttribute("Items", items);
+       request.getRequestDispatcher("allItems.jsp").forward(request, response);
    }
 }
 

@@ -1,7 +1,7 @@
 <%-- 
     Document   : allListings
     Created on : 26/08/2019, 5:39:22 PM
-    Author     : Calvi
+    Author     : Calvin
 --%>
 
 <%@page import="java.util.ArrayList"%>
@@ -14,19 +14,30 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>All Users</title>
-        <link rel="stylesheet" href="css/BetterASDStyle.css">
+            <link rel="stylesheet" href="css/ASDStyle.css">
     </head>
     
     <body>
         <jsp:include page="header.jsp"/>
-        <% //Dummy data, will be replaced when database is fixed
-            ArrayList <Item> itemList = new ArrayList<Item>();
-            //itemList.add(new Item("01","Dog","01/01/1901",10,30,9.99,"","","","","","",""));
-            //itemList.add(new Item("02","Cat","01/02/1901",40,50,19.99,"","","","","","",""));
+        <% 
+            //Loading content from servlet 
+            ArrayList <Item> itemList = (ArrayList<Item>) request.getAttribute("Items");
+            String msg = (String) request.getAttribute("msg");
+            String id = (String) request.getAttribute("id");
         %>
+        
         <div class="container">
             <div class="row">
                 <h>All Items</h>
+            </div>
+            <div class="row">
+                <!-- <a href="addItem.jsp" value="add"> Add Item</a> -->
+                <!-- Shows validation messages -->
+                <div class="message">
+                    <% if(msg != null){ %>
+                        <u><b><%=msg%></b></u>  
+                    <%  }  %>
+                </div>
             </div>
             <div class="row">
                 <table>
@@ -38,11 +49,15 @@
                        <th> Price/Current Bid </th>
                        <th> Description </th>
                        <th> Category </th>
-                       <th> Seller ID </th>                       
+                       <th> Listing Expiry </th>
+                       <th> Seller ID </th>
+                       <th> Auctioned? </th>
                        <th> Image URL </th>
+                       <th> Delete </th>
                        
                     </tr>
-                    <% for(Item item: itemList){ %>
+                    
+                    <% for(int i = 0; i < itemList.size();i++){Item item = itemList.get(i);%>
                         <tr>
                             <td>
                                 <%=item.getID()%>
@@ -50,14 +65,19 @@
                             <td>
                                 <%=item.getName()%>
                             </td>
+                            <% if(item.getID().equals(id)){%>
+                            <td colspan="5">
+                                Are you sure you want to delete this item?
+                                <a href="./deleteItem?id=<%=id%>&confirm=true"> Yes </a>
+                                    &nbsp;&nbsp;&nbsp;
+                                <a href="./allItems"> No </a>
+                            </td>
+                            <%} else {%>
                             <td>
                                 <%=item.getDateListed()%>
                             </td>
                             <td>
                                 <%=item.getStock()%>
-                            </td>
-                            <td>
-                                <%=item.getSoldQuantity()%>
                             </td>
                             <td>
                                 $<%=item.getPrice()%>
@@ -69,22 +89,27 @@
                                 <%=item.getCategory()%>
                             </td>
                             <td>
-                                <%=item.getYearMade()%>
+                                <%=item.getExpDate()%>
                             </td>
                             <td>
                                 <%=item.getSellerID()%>
                             </td>
                             <td>
-                                <%=item.getCondition()%>
+                                <%if(item.ifAuc()){ %>
+                                    Yes
+                                <%} else {%>
+                                    No
+                                <% } %>      
                             </td>
                             <td>
-                                <%=item.getColor()%>
+                                    <%=item.getImage()%>
                             </td>
                             <td>
-                                <%=item.getImage()%>
+                                <a href="./deleteItem?id=<%=item.getID()%>" id="deleteBtn"> Delete </a>
                             </td>
+                            <% } %>
                         </tr>
-                    <% }%>
+                    <% } %>
                 </table>
             </div>
         </div>
