@@ -21,6 +21,8 @@
                 Item item = (Item) request.getAttribute("item");
                 String error = (String) request.getAttribute("err");
 
+                request.setAttribute("buy_product_item", item);
+                
                 //String id = request.getParameter("id");
                 MongoDBConnector connector = new MongoDBConnector();
                 if (item != null) {
@@ -43,7 +45,7 @@
                     <div> Price: $<%=item.getPrice()%> </div>
                     <div> Expiration Date: <%=item.getExpDate()%></div>
 
-                    <a href="./buy?id=<%=item.getID()%>"> Buy Now! </a>                
+                    <a href="buyProduct.jsp"> Buy Now! </a>                
                 </div>    
 
                 
@@ -74,14 +76,7 @@
                     
                 <div class="reviewtitlebox">
                     <h2>Item Reviews</h2>
-                    <a href="./review?id=<%=item.getID()%>">Leave a Review</a>
-
-
-                    <form method="post" action="review.jsp">
-                        <input type="HIDDEN" name="id" value="<%=item.getID()%>">
-                        <input type="HIDDEN" name="name" value="<%=item.getName()%>">
-                        <input class="" type="submit" value="Leave a Review">
-                    </form> 
+                    <a class="searchbutton" href="./review?id=<%=item.getID()%>">Leave a Review</a>
                 </div>
                 <%
                     //This retrieves all review data from the DB that contains the same ItemId as the item

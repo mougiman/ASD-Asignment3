@@ -6,7 +6,7 @@
 package asd.demo.controller;
 
 import asd.demo.model.Rating;
-import asd.demo.model.User;
+import asd.demo.model.Review;
 import asd.demo.model.dao.MongoDBConnector;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,37 +21,34 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author mougi
  */
-@WebServlet(name = "RatingMadeController", urlPatterns = {"/RatingMadeController"})
-public class RatingMadeController extends HttpServlet {
+@WebServlet(name = "ReviewMadeController", urlPatterns = {"/ReviewMadeController"})
+public class ReviewMadeController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         MongoDBConnector connector = new MongoDBConnector();
         //String id = request.getParameter("id"); //Gets item id from url 
         //User user = connector.getUser(id);
 
-        Random rand = new Random();
-        String ratingid = "" + rand.nextInt(999999);
-        String rated = request.getParameter("rated");
-        String rater = request.getParameter("rater");
-        double score = Double.parseDouble(request.getParameter("score"));
-        String desc = request.getParameter("desc");
+        String userid = request.getParameter("userid");
         String title = request.getParameter("title");
-        String date = "" + java.time.LocalDate.now();
-
-        Rating rating = new Rating(ratingid, rated, rater, desc, title, date, "" + score);
+        String itemid = request.getParameter("itemid");
+        Random rand = new Random();
+        String id = "" + rand.nextInt(999999);
+        String desc = request.getParameter("desc");
+        String DateListed = "" + java.time.LocalDate.now();
+        //This function add reviews to database
 
         String errMsg = "";
         request.setAttribute("err", errMsg);
         //Error checks
-        if (rating == null) {
-            errMsg = "User for Rating not found, Please look for another User to Rate.";
+        if (title == null) {
+            errMsg = "Item for Review not found, Please look for another Item to Review.";
             request.setAttribute("err", errMsg);
         } else {
             //request.setAttribute("rating", rating);
-            connector.addRating(rating);
+            connector.addReview(id, itemid, userid, desc, title, DateListed);
 
         }
-        request.getRequestDispatcher("./profile?id="+rated).forward(request, response);
+        request.getRequestDispatcher("./item?id=" + itemid).forward(request, response);
     }
 }
-

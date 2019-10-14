@@ -7,7 +7,7 @@
     <head>      
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Main</title>
-        <link rel="stylesheet" href="css/ASDStyle.css">
+        <link rel="stylesheet" href="css/BetterASDStyle.css">
         
     </head>
 
@@ -25,20 +25,7 @@
             </div>
             <!--Displays the search options available to the user-->
             <div class="row">
-                <form action="./home">
-                    Search Bar
-                    <input type="text" name="searchText">
-                    <input type="submit" name="search" value="Search">
-                    <br>
-                    <input type="radio" name="searchType" value="item" checked> Search for Item </input>
-                    <input type="radio" name="searchType" value="category"> Search for Category </input>
-                    <br>
-                    <select name="sort">
-                        <option value="null"> Sort By </option>
-                        <option value="lowToHigh"> Price - Low to High </option>
-                        <option value="highToLow"> Price - High to low </option>
-                    </select>       
-                </form>
+
             </div>
             <div class="row">
                 <!-- Error check-->

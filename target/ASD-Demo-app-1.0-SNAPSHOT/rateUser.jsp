@@ -34,15 +34,26 @@
                 </div>
                 <div class="pure-control-group">
                     <label for="">Rating Score:</label>
-                    <input id="" type="number" placeholder=""  min="0.00" step="0.01" max="5" name="score" required>
+                    <input id="" type="number" placeholder=""  min="0" step="0.01" max="5" name="score" required>
                 </div>
                 <div class="pure-control-group" >
                     <label for="">Description:</label>
                     <textarea name = "desc" class="pure-input-1-2" placeholder="This user...." required></textarea>
-                </div>           
+                </div>                        
                 <input type="HIDDEN" name="rated" value="<%=user.getID()%>">
                 <input type="HIDDEN" name="id" value="<%=user.getID()%>">
+                  <%
+                    User user2 = (User) session.getAttribute("userLogin"); 
+                   if (user2 != null){  
+                    %>
+                <input type="HIDDEN" name="rater" value="<%=user2.getID()%>">
+                <%
+                    }else{
+                %>
                 <input type="HIDDEN" name="rater" value="11111111">
+                <%
+                    }
+                    %>
                 <div class="pure-controls">
                     <button type="submit" class="pure-button pure-button-primary">Submit</button>
                 </div>

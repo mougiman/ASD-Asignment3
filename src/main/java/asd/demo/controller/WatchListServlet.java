@@ -31,14 +31,14 @@ public class WatchListServlet extends HttpServlet {
      
  ArrayList<Item> items = new ArrayList<Item>();
        
-       User user = connector.getUser("961496029");
+       User user = connector.getUser("11111111");
        String errMsg = "";
        request.setAttribute("err", errMsg);
     //   if(user == null){
      //       request.getRequestDispatcher("login.jsp").forward(request, response);
      //  }
     //   else{
-                 ItemList item= connector.getItemList();//getWL("961496029");
+                 ItemList item=connector.getWatchList("11111111");
                   items = item.getList();
                   
                    

@@ -11,16 +11,15 @@
 <html>
     <%
         //Attributes recieved from itemServlet
-        Item item = (Item) request.getAttribute("item");
+        Item item = (Item) request.getAttribute("buy_product_item");
         String error = (String) request.getAttribute("err");
-
         MongoDBConnector connector = new MongoDBConnector();
         if (item != null) {
     %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Buy a product Page</title>
-        <link rel="stylesheet" href="css/ASDStyle.css">
+        <link rel="stylesheet" href="css/BetterASDStyle.css">
         <style>
             .submit-btn{
                 padding: 5px;
@@ -35,7 +34,7 @@
     <body>
         <h1>Product review</h1>
         <jsp:include page="header.jsp"/>    
-        <form method="get" action="buy">
+        <form method="post" action="buy">
             <div class="container">
                 <h1>Product</h1>
 
@@ -43,6 +42,7 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label> name：</label><%=item.getName()%>
+                            <input type="hidden" name="itemID" value="<%=item.getID()%>">
                         </div>
                         <div class="form-group">
                             <label>Image：</label>
@@ -62,11 +62,27 @@
                         </div>
                         <div class="form-group">
                             <label> Pay Type：</label>
-                            <input type="radio" name="pay" value="1" checked>debit or credit card
-                            <input type="radio" name="pay" value="2">PayPal
+                            <input type="radio" name="pay" value="1" checked onClick="handlePayType(1)">debit or credit card
+                            <input type="radio" name="pay" value="2" onClick="handlePayType(2)">PayPal
+                        </div>
+                        <div class="form-group" id="creditDiv">
+                            <label> Card No：</label>
+                            <input type="text" name="cardNo" id="bankNo" value=""/>
+                            <label> User Name：</label>
+                            <input type="text" name="bankUserName" id="bankName" value=""/>
+                        </div>
+                        <div class="form-group" id="paypalDiv" style="display:none;">
+                            <label> Account No：</label>
+                            <input type="text" name="accountNo" id="accountNo" value=""/>
+                            <label> Account Password：</label>
+                            <input type="text" name="accountPassword" id="accountPassword" value=""/>
+                        </div>
+                        <div class="form-group">
+                            <label> Address：</label>
+                            <input type="text" name="address" value=""/>
                         </div>
 
-                        <input class="btn btn-success pull-right" type="submit" value="">
+                        <input class="btn btn-success pull-right" type="submit" value="Buy">
                     </div>
                 </div>
             </div>
@@ -78,5 +94,18 @@
 <%
     }
     %>
+        <script>
+            function handlePayType(payType){
+                var creditDiv = document.getElementById("creditDiv");
+                var paypalDiv = document.getElementById("paypalDiv");
+                if(payType == 1){
+                    creditDiv.style.display = "inline";
+                    paypalDiv.style.display = "none";
+                }else if(payType == 2){
+                    creditDiv.style.display = "none";
+                    paypalDiv.style.display = "inline";
+                }
+            }
+        </script>
     </body>
 </html>

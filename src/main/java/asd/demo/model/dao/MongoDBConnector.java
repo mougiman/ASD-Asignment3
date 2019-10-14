@@ -34,7 +34,6 @@ public class MongoDBConnector {
     MongoCollection<Document> orders = shopDB.getCollection("Order");
     MongoCollection<Document> buyLogs = shopDB.getCollection("Order");
 
-
     public MongoDatabase getMongoDB() {
         if (shopDB == null) {
             //MongoClientURI uri = new MongoClientURI("mongodb://mougiosalex%40gmail.com:Mougios_13@ds115411.mlab.com:15411/heroku_dmxfzlt3");
@@ -479,9 +478,9 @@ public class MongoDBConnector {
         score = score / count;
         return score;
     }
-
-    public void saveBuyOrder(Item item, String payType, String address,userID) {
-        Document document = new Document("itemID", item.getItemID()).
+        //This is completely broken and dumb, each order should have its own id
+    public void saveBuyOrder(Item item, String payType, String address, String userID) {
+        Document document = new Document("itemID", item.getID()).
                 append("price", item.getPrice()).
                 append("userID", userID).
                 append("dateListed", item.getDateListed()).
@@ -502,35 +501,34 @@ public class MongoDBConnector {
         WL.deleteOne(document);
 
     }
-    
-    public boolean check(String UID, String ID){
-       for (Document doc : WL.find()) {
-           
-           if(doc.get("ProductID").equals( ID) && doc.get("UserID").equals(UID))
-           {
-           return true;
-           }
-       }
-       return false;
-       }
-    
-        //get order list by userId
-        public ArrayList<Order> getOrderList(String id) {
+
+    public boolean check(String UID, String ID) {
+        for (Document doc : WL.find()) {
+
+            if (doc.get("ProductID").equals(ID) && doc.get("UserID").equals(UID)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //get order list by userId
+    public ArrayList<Order> getOrderList(String id) {
         List<Document> documents = (List<Document>) orders.find().into(new ArrayList<Document>());
         ArrayList<Order> orders = new ArrayList<Order>();
         for (Document document : documents) {
             String userID = "" + document.get("userID");
-            if(userID.equals(id)){
-            Order order = new Order();                
-            order = new Order("" + document.get("id"), "" + document.get("itemID"), "" + document.get("userID"), "" + document.get("address") , "" + document.get("dateListed") );
-            orders.add(order);
+            if (userID.equals(id)) {
+                Order order = new Order();
+                order = new Order("" + document.get("id"), "" + document.get("itemID"), "" + document.get("userID"), "" + document.get("address"), "" + document.get("dateListed"));
+                orders.add(order);
             }
-        }    
+        }
         return orders;
     }
-        
-      //Gets the name of the item, which id is given
-      public String getitemname(String id) {
+
+    //Gets the name of the item, which id is given
+    public String getitemname(String id) {
         List<Document> documents = (List<Document>) dbItems.find().into(new ArrayList<Document>());
         String name = "";
         for (Document document : documents) {
@@ -540,6 +538,38 @@ public class MongoDBConnector {
             }
         }
         return name;
+    }
+
+    public ItemList getWL(String ID) {
+
+        ItemList items = new ItemList();
+        for (Document doc : dbItems.find()) {
+            if (doc.get("id").equals(ID)) {
+
+                Item item = new Item((String) doc.get("id"), (String) doc.get("name"),
+                        (String) doc.get("dateListed"), (int) doc.get("stock"),
+                        (double) doc.get("price"), (String) doc.get("desc"),
+                        (String) doc.get("category"), (String) doc.get("sellerID"),
+                        (String) doc.get("expdate"), (boolean) doc.get("ifAuc"), (String) doc.get("image"));
+                items.addItem(item);
+
+            }
+        }
+        return items;
+    }
+
+    public ItemList getWatchList(String UID) {
+        ItemList WatchList = new ItemList();
+
+        for (Document doc : WL.find()) {
+            String id = "11111111"; //(String)(doc.get("UserID"));
+            if (UID.equals(id)) {
+
+                WatchList = getWL((String) doc.get("ProductID"));
+
+            }
+        }
+        return WatchList;
     }
 
 }

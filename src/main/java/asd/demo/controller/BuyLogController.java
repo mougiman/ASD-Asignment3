@@ -15,7 +15,9 @@ import javax.servlet.http.HttpSession;
  * @author George
  */
 public class BuyLogController extends HttpServlet {
+    /*
     @Override
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -45,4 +47,5 @@ public class BuyLogController extends HttpServlet {
         }
         request.getRequestDispatcher("buyProduct.jsp").forward(request, response);
      }
+    */
 }

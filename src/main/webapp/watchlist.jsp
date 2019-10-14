@@ -22,7 +22,7 @@
             if(items.isEmpty())
             {
                %>  
-                <p>nooooooooooo</p>
+                <p>nothing in watchlist</p>
            <%  }else{ %> 
           
            

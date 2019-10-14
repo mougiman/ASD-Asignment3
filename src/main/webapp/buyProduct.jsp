@@ -12,7 +12,6 @@
     <%
         //Attributes recieved from itemServlet
         String itemID = (String) request.getAttribute("itemId");
-        
         String error = (String) request.getAttribute("err");
         MongoDBConnector connector = new MongoDBConnector();
         Item item = connector.getItem(itemID);
@@ -21,7 +20,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Buy a product Page</title>
-        <link rel="stylesheet" href="css/ASDStyle.css">
+        <link rel="stylesheet" href="css/BetterASDStyle.css">
         <style>
             .submit-btn{
                 padding: 5px;

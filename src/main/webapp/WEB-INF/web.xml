@@ -69,6 +69,14 @@
         <servlet-name>ReviewController</servlet-name>
         <url-pattern>/review</url-pattern>
     </servlet-mapping>
+     <servlet>
+        <servlet-name>ReviewMadeController</servlet-name>
+        <servlet-class>asd.demo.controller.ReviewMadeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReviewMadeController</servlet-name>
+        <url-pattern>/reviewMade</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>RatingController</servlet-name>
         <servlet-class>asd.demo.controller.RatingController</servlet-class>
