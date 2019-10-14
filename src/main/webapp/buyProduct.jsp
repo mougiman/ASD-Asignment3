@@ -11,7 +11,7 @@
 <html>
     <%
         //Attributes recieved from itemServlet
-        String itemID = (String) request.getAttribute("itemId");
+        String itemID = request.getParameter("itemId");
         String error = (String) request.getAttribute("err");
         MongoDBConnector connector = new MongoDBConnector();
         Item item = connector.getItem(itemID);
