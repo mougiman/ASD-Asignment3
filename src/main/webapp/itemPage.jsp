@@ -43,7 +43,15 @@
                     <div> Price: $<%=item.getPrice()%> </div>
                     <div> Expiration Date: <%=item.getExpDate()%></div>
 
-                    <a href="buyProduct.jsp?itemId=<%=item.getID()%>"> Buy Now! </a>                
+                    <a href="buyProduct.jsp?itemId=<%=item.getID()%>"> Buy Now! </a>
+                    <% if(session.getAttribute("userLogin") != null){
+                    session.setAttribute("item", item);%>
+                    <%  if(connector.itemIdExists(item.getID())){%>
+                        <p>Already in cart</p>
+                        <%}else{%>
+                    <a href="addtocart"><button>Add To Cart</button></a>
+           
+                    <%} }%>
                 </div>    
 
                 
