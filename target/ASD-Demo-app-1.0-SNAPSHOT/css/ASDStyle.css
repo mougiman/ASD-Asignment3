@@ -116,9 +116,18 @@ a.button{
     color: initial;
 }
 
-table, th, td{
+
+table{
     border:2px solid black;
     padding: 5px;
+    width: 100%;
+    table-layout:fixed;
+}
+
+th,td{
+    border-bottom: 1px solid darkgrey;
+    border-right: 1px solid darkgrey;
+    word-wrap: break-word;
 }
 .itemCard > .imageContainer{
     width:200px;
@@ -201,4 +210,19 @@ hr{
 
 .inputbox{
     padding: 5px 10px 5px 10px;
+}
+
+
+.message{
+    width:80%;
+    text-align: center;
+    color: red;
+    font: bold;
+}
+
+.row2{
+    padding: 10px 0px 10px 20px;
+    background-color: lightblue;
+    flex:none;
+    text-align: center;
 }

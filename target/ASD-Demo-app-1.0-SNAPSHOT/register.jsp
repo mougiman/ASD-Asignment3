@@ -140,7 +140,7 @@
                 <jsp:include page="header.jsp"/>
         <div class="container">
             <h1>REGISTER</h1>
-            <form id="registerform"  action="reg-login" method="post">  //Register form
+            <form id="registerform"  action="reg-login" method="post">  
                 <div>
                     <label>
                         Username
@@ -172,7 +172,7 @@
                     <input type="text" id="num" name="phone">
                 </div>
                 <input type="submit" value="Register">
-                <input type = "button" onclick="window.location.href='./'" value = "Cancel"/> //Cancel button
+                <input type = "button" onclick="window.location.href='./'" value = "Cancel"/>
                 </form>
             </div>
     </body>

@@ -33,6 +33,7 @@ public class MongoDBConnector {
     MongoCollection<Document> WL = shopDB.getCollection("WatchList");
     MongoCollection<Document> orders = shopDB.getCollection("Order");
     MongoCollection<Document> buyLogs = shopDB.getCollection("Order");
+    MongoCollection<Document> cart = shopDB.getCollection("cart");
 
     public MongoDatabase getMongoDB() {
         if (shopDB == null) {

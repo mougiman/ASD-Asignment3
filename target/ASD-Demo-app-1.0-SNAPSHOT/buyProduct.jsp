@@ -11,9 +11,10 @@
 <html>
     <%
         //Attributes recieved from itemServlet
-        Item item = (Item) request.getAttribute("buy_product_item");
+        String itemID = request.getParameter("itemId");
         String error = (String) request.getAttribute("err");
         MongoDBConnector connector = new MongoDBConnector();
+        Item item = connector.getItem(itemID);
         if (item != null) {
     %>
     <head>

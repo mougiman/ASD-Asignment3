@@ -21,14 +21,22 @@
     <body>
         <jsp:include page="header.jsp"/>
         <% //Stores the data from the controller
-             ArrayList<User> userList = (ArrayList<User>) request.getAttribute("Users");
+            ArrayList<User> userList = (ArrayList<User>) request.getAttribute("Users");
+            String msg = (String) request.getAttribute("msg");
+            String id = (String) request.getAttribute("id");
         %>  
+       
         <div class="container">
             <div class="row">
                 <h>All Users</h>
             </div>
             <div class="row">
-                <a href="./addUserPage" name="action" value="add"> Add User</a>
+                <a href="addUser.jsp" name="action" value="add"> Add User</a>
+                <div class="message">
+                    <% if(msg != null){ %>
+                        <u><b><%=msg%></b></u>  
+                    <%   }  %>
+                </div>
             </div>
             <div class="row">
                 <br>
@@ -52,6 +60,14 @@
                             <td>
                                 <%=user.getName()%>
                             </td>
+                            <% if(user.getID().equals(id)){%>
+                            <td colspan="5">
+                                Are you sure you want to delete this user?
+                                <a href="./deleteUser?id=<%=id%>&confirm=true"> Yes </a>
+                                    &nbsp;&nbsp;&nbsp;
+                                <a href="./users"> No </a>
+                            </td>
+                            <%} else {%>
                             <td>
                                 <%=user.getEmail()%>
                             </td>
@@ -65,13 +81,13 @@
                                 <%=user.getIsAdmin()%>
                             </td>
                             <td>
-                                <a href="./users" name="action" value="delete"> Delete</a>
+                                <a href="./deleteUser?id=<%=user.getID()%>" id="deleteBtn"> Delete </a>
                             </td>
+                            <%}%>
                         </tr>
                     <% }%>
                 </table>
-                
-            </div>
+            </div>>
         </div>
     </body>
 </html>
