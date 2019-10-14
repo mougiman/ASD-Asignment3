@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app metadata-complete="true" version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet-mapping>
+        <servlet-name>CartController</servlet-name>
+        <url-pattern>/CartController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartDeleteController</servlet-name>
+        <url-pattern>/CartDeleteController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             6000
@@ -9,6 +17,14 @@
         <servlet-name>homeController</servlet-name>
         <servlet-class>asd.demo.controller.HomeController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CartController</servlet-name>
+        <servlet-class>asd.demo.controller.CartController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartController</servlet-name>
+        <url-pattern>/addtocart</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>homeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -16,6 +32,10 @@
     <servlet>
         <servlet-name>loginController</servlet-name>
         <servlet-class>asd.demo.controller.ValidatorServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CartDeleteController</servlet-name>
+        <servlet-class>asd.demo.controller.CartDeleteController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>loginController</servlet-name>
