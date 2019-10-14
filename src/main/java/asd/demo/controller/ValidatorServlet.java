@@ -43,7 +43,7 @@ public class ValidatorServlet extends HttpServlet {
                 request.getRequestDispatcher("login.jsp?passErr=1").include(request, response);
              }else{
                  session.setAttribute("userLogin", user);
-                 request.getRequestDispatcher("./").include(request, response);
+                 request.getRequestDispatcher("header.jsp").include(request, response);
              }
             
         }
