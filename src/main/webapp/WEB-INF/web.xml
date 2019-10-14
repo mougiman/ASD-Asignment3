@@ -17,6 +17,10 @@
         <servlet-name>homeController</servlet-name>
         <servlet-class>asd.demo.controller.HomeController</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>homeController</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>CartController</servlet-name>
         <servlet-class>asd.demo.controller.CartController</servlet-class>
@@ -24,10 +28,6 @@
     <servlet-mapping>
         <servlet-name>CartController</servlet-name>
         <url-pattern>/addtocart</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>homeController</servlet-name>
-        <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>loginController</servlet-name>
