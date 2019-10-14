@@ -20,7 +20,7 @@ public class BuyLogController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        User user = session.getAttribute("userLogin");
+        User user = (User)session.getAttribute("userLogin");
         String itemID = request.getParameter("itemID");
         String payType = request.getParameter("payType");
         String address = request.getParameter("address");
@@ -37,13 +37,7 @@ public class BuyLogController extends HttpServlet {
         
         String errMsg = "";
         request.setAttribute("err", errMsg);
-        //Error checks
-        if (item == null) {
-            errMsg = "Item not found, Please look for another Item";
-            request.setAttribute("err", errMsg);
-        }else {
-            request.setAttribute("item", item);
-        }
+    
         request.getRequestDispatcher("buyProduct.jsp").forward(request, response);
      }
     
