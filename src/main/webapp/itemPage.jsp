@@ -20,8 +20,6 @@
                 //Attributes recieved from itemServlet
                 Item item = (Item) request.getAttribute("item");
                 String error = (String) request.getAttribute("err");
-
-                request.setAttribute("buy_product_item", item);
                 
                 //String id = request.getParameter("id");
                 MongoDBConnector connector = new MongoDBConnector();
@@ -45,7 +43,7 @@
                     <div> Price: $<%=item.getPrice()%> </div>
                     <div> Expiration Date: <%=item.getExpDate()%></div>
 
-                    <a href="buyProduct.jsp"> Buy Now! </a>                
+                    <a href="buyProduct.jsp?itemId=<%=item.getID()%>"> Buy Now! </a>                
                 </div>    
 
                 
