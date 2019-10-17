@@ -5,9 +5,12 @@
  */
 package asd.demo.controller;
 
+import asd.demo.model.Item;
 import asd.demo.model.User;
+import asd.demo.model.dao.MongoDBConnector;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +25,13 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("./adminServ")
 public class adminPageServlet extends HttpServlet {
-   public void doGet(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException{
+   public void doPost(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException{
+       
+       String id = (String) request.getAttribute("id");
+       MongoDBConnector connector = new MongoDBConnector();
+       User user = connector.getUser(id);
+       request.setAttribute("name", user.getName());
        request.getRequestDispatcher("adminPage.jsp").forward(request, response);
+   
    }
 }

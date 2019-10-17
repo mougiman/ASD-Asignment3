@@ -15,16 +15,18 @@
         <title>Admin Page</title>
         <link rel="stylesheet" href="css/ASDStyle.css">
         
-        
     </head>
     <body>
         <jsp:include page="header.jsp"/>
+        <%
+            String name = (String) request.getAttribute("name");
+        %>
         <div class="row">
             <h> Admin page</h>
         </div>
         <div class="container">
             <div class="col">
-                <div> Username: Calvin </div> 
+                <div> Username: <%=name%> </div> 
             </div>
             <div class="col">
                 <a href="./users" class="button"> Manage users </a>

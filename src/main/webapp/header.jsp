@@ -50,12 +50,17 @@
             <a href=".\" class="links">Home</a> <!--- Links back to index --->
             <a href="listItem.jsp" class="links">List an Item</a>
             <a href="Auction.jsp" class="links">Auction a Product</a>
-            <a href=".\admin" class="links"> Administration </a>
+            
 
             <% } %>
         </span>
         <span class="rightalign">
-            <% if (user != null) {%>
+            <% if (user != null) {
+				if (user.isAdmin()){
+			%>	
+				<a href=".\admin?id=<%user.getID()%>" class="links"> Administration </a>
+			<%}%>
+			
             <a href="./profile?id=<%=user.getID()%>"> <%=user.getEmail()%>'s Profile</a>               
             <a href="cart.jsp">Cart</a>
             <a href="logout.jsp">Logout</a>
