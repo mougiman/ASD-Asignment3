@@ -41,6 +41,8 @@
         <jsp:include page="header.jsp"/>
 
         <%
+            User user = (User) session.getAttribute("userLogin");
+
             Item item = (Item) request.getAttribute("item");
 
             MongoDBConnector connector = new MongoDBConnector();
@@ -79,7 +81,7 @@
 
                         <input type = submit value = "place bid">
                     </div>
-                    <%if (connector.check("11111111", item.getID())) {%>
+                    <%if (connector.check(user.getID(), item.getID())) {%>
                     <form method="post" action="delete.jsp" >
                         <div>  <input type="hidden" name="id" value = "<%=item.getID()%>"</div>
                         <input type = submit value = "dislike">

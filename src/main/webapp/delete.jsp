@@ -3,6 +3,7 @@
     Created on : 2019-9-29, 16:32:22
     Author     : Cai weize
 --%>
+<%@page import="asd.demo.model.User"%>
 <%@page import="asd.demo.model.dao.MongoDBConnector"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,9 +13,11 @@
         <title>JSP Page</title>
     </head>
     <body>
+            <% User user = (User) session.getAttribute("userLogin"); %>                                 
+
        <% 
             String id = request.getParameter("id");
-            String Uid = "11111111";
+            String Uid = user.getID();
             
           
              MongoDBConnector connector = new MongoDBConnector();

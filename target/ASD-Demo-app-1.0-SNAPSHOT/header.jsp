@@ -17,7 +17,7 @@
 
     <div class="title">
         <div style="display: inline-block">
-            <h2 style="size: 160px">Sell n' Buy</h2>
+            <p style="size: 160px">Sell n' Buy</p>
         </div>
         <div class="searchbar">
             <form action="./home">
@@ -50,7 +50,6 @@
             <a href=".\" class="links">Home</a> <!--- Links back to index --->
             <a href="listItem.jsp" class="links">List an Item</a>
             <a href="Auction.jsp" class="links">Auction a Product</a>
-            
 
             <% } %>
         </span>
@@ -64,6 +63,7 @@
             <a href="./profile?id=<%=user.getID()%>"> <%=user.getEmail()%>'s Profile</a>               
             <a href="cart.jsp">Cart</a>
             <a href="logout.jsp">Logout</a>
+            <a href="./watchlist?id=<%=user.getID()%>">Watchlist</a>
             <% } else { %>                      
             <a href="login.jsp" class="links">Log In</a>
             <a href="register.jsp" class="links" >Register</a>
