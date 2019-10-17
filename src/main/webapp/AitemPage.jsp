@@ -81,6 +81,7 @@
 
                         <input type = submit value = "place bid">
                     </div>
+                    </form>
                     <%if (connector.check(user.getID(), item.getID())) {%>
                     <form method="post" action="delete.jsp" >
                         <div>  <input type="hidden" name="id" value = "<%=item.getID()%>"</div>
@@ -103,7 +104,6 @@
                                 </div>
                             </div>
                         </div>
-                        </form>
                     </div>
                     <%} else if (item == null) {
 

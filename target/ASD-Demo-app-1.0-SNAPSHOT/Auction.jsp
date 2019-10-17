@@ -195,7 +195,7 @@
 
         } else {
         %>
-        <p>You must be logged in to list an item</p>
+        <p>You must be logged in to auction an item</p>
         <p>Log in <a href="login.jsp">here</a></p>
         <p>Register a new account <a href="register.jsp">here</a></p>
         <%

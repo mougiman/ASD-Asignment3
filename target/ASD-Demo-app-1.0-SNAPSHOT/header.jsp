@@ -55,11 +55,13 @@
         </span>
         <span class="rightalign">
             <% if (user != null) {
-				if (user.isAdmin()){
-			%>	
-				<a href=".\admin?id=<%user.getID()%>" class="links"> Administration </a>
-			<%}%>
-			
+                    if (user.getIsAdmin()) {
+            %>	
+            <a href=".\admin?id=<%user.getID()%>" class="links"> Administration </a>
+            <% 
+                }
+            %>
+
             <a href="./profile?id=<%=user.getID()%>"> <%=user.getEmail()%>'s Profile</a>               
             <a href="cart.jsp">Cart</a>
             <a href="logout.jsp">Logout</a>
