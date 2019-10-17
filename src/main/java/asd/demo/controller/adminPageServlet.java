@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("./adminServ")
 public class adminPageServlet extends HttpServlet {
-   public void doPost(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException{
+   public void doGet(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException{
        
        String id = (String) request.getAttribute("id");
        MongoDBConnector connector = new MongoDBConnector();

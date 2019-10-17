@@ -44,6 +44,17 @@
                     <div> Expiration Date: <%=item.getExpDate()%></div>
 
                     <a href="buyProduct.jsp?itemId=<%=item.getID()%>"> Buy Now! </a>
+                    <%  User userLogin = (User)session.getAttribute("userLogin");
+                        if(userLogin != null){
+                        session.setAttribute("item", item);%>
+                    <%  if(connector.itemIdExists(item.getID(),userLogin.getID())){%>
+                        <h1>Already in cart</h1>
+                        <%}else{%>
+                    <a href="addtocart"><button>Add To Cart</button></a>
+           
+                    <%} }else{%>
+                    <a href="login.jsp"><button>Add To Cart</button></a>
+                        <%}%>
                 </div>    
 
                 
@@ -67,7 +78,7 @@
                 <div class="col">
                     <div class="userBox">
                         <div><u> User Info </u></div>
-                        <div> Listed User : <a href="./profile?id=<%=item.getSellerID()%>" ><%=connector.getusername(item.getSellerID())%></a></div>                 
+                        <div> Listed User : <a class="sellerprofile" href="./profile?id=<%=item.getSellerID()%>" ><%=connector.getusername(item.getSellerID())%></a></div>                 
                         <div> Listed Date: <%=item.getDateListed()%> </div>
                     </div>
                 </div> 

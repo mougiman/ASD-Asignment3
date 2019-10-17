@@ -13,13 +13,16 @@
     </head>
     <jsp:include page="header.jsp"/>
 
-    <body>              
-        <%
-            //Attributes recieved from sellerServlet
-
+    <body>        
+        <% 
             User user = (User) request.getAttribute("user");
             String error = (String) request.getAttribute("err");
             MongoDBConnector connector = new MongoDBConnector();
+        %>    
+       
+        <%
+             if(session.getAttribute("userLogin") != null){
+             if (user != null){  
         %>
         <!-- Display errors -->
 
@@ -80,6 +83,19 @@
             %>
         </div>
         <% }%>
+        <%
+            }}else{
+        %>
+        <div class="alert alert-danger">          
+        <h2><strong>You must be logged in to User Profile page</strong></h2>
+            </div>
+        <h3>Log in <a href="login.jsp">here</a></h3>
+        <h3>Register a new account <a href="register.jsp">here</a></h3>
+        <%
+            }
+         %>
+    </body>
+</html>
     </body>
 </html>    
 

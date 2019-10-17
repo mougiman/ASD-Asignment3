@@ -112,7 +112,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>adminPageController</servlet-name>
-        <url-pattern>/admin</url-pattern>
+        <url-pattern>/admin/*</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>allUsersController</servlet-name>
