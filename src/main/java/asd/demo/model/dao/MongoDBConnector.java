@@ -378,8 +378,8 @@ public class MongoDBConnector {
     }
     
      //whether item exists
-    public boolean itemIdExists(String itemID){
-        List<Document> documents = (List<Document>) cart.find(and(eq("itemID",itemID))).into(new ArrayList<Document>());
+    public boolean itemIdExists(String itemID,String userID){
+        List<Document> documents = (List<Document>) cart.find(and(eq("itemID",itemID),eq("userID",userID))).into(new ArrayList<Document>());
         if(documents.isEmpty()){
             return false;
         }
