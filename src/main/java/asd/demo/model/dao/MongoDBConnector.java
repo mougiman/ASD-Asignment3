@@ -353,6 +353,58 @@ public class MongoDBConnector {
         }
         return searchList;
     }
+//add cartItem
+    public void addToCart(CartItem cartItem){
+        List<Document> carts = new ArrayList<>();
+        carts.add(new Document("userID",cartItem.getUserID())
+                .append("itemID",cartItem.getItemID()));
+        cart.insertMany(carts);
+    }
+    
+    public void deleteCartItem(String userID,String itemID){
+        cart.deleteOne(and(eq("userID", userID),eq("itemID",itemID)));
+    }
+    
+    public void clearCart(String userID){
+        cart.deleteMany(and(eq("userID", userID)));
+    }
+    
+    public boolean isCartEmpty(String userID){
+        List<Document> documents = (List<Document>)cart.find(and(eq("userID",userID)));
+        if(documents == null){
+            return true;
+        }
+        return false;
+    }
+    
+     //whether item exists
+    public boolean itemIdExists(String itemID){
+        List<Document> documents = (List<Document>) cart.find(and(eq("itemID",itemID))).into(new ArrayList<Document>());
+        if(documents.isEmpty()){
+            return false;
+        }
+        return true;
+    }
+    
+    public ArrayList<CartItem> getCartItemsByUserID(String userID){
+        List<Document> documents = (List<Document>) cart.find(and(eq("userID",userID))).into(new ArrayList<Document>()); 
+        ArrayList<CartItem> cartItems = new ArrayList<>();
+        for (Document document : documents) {
+            CartItem cartItem = new CartItem((String)document.get("userID"), (String)document.get("itemID"));
+            cartItems.add(cartItem);
+        }
+        return cartItems;      
+    }
+    
+    public Item getItemByID(String itemID){
+        Document doc = dbItems.find(and(eq("id",itemID))).first();    
+        Item item = new Item((String) doc.get("id"), (String) doc.get("name"),
+                        (String) doc.get("dateListed"), (int) doc.get("stock"),
+                        (double) doc.get("price"), (String) doc.get("desc"),
+                        (String) doc.get("category"), (String) doc.get("sellerId"),
+                        (String) doc.get("expdate"), (boolean) doc.get("ifAuc"), (String) doc.get("image"));
+        return item;
+    }
     // Add users to User Collection
     public void add(User user) {
         List<Document> users = new ArrayList<>();
