@@ -29,7 +29,7 @@
             %>
             <div class="orderHistory">
                 <!-- Display errors -->
-                <% if (error.length() > 0) {%>
+              <% if (order==null) {%>
                 <%=error%>
                 <%} else {%>
 
