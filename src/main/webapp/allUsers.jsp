@@ -1,7 +1,7 @@
 <%-- 
     Document   : allUsers
     Created on : 26/08/2019, 5:33:41 PM
-    Author     : Calvi
+    Author     : Calvin
 --%>
 
 <%@page import="java.util.ArrayList"%>
@@ -20,7 +20,7 @@
     </head>
     <body>
         <jsp:include page="header.jsp"/>
-        <% //Stores the data from the controller
+        <% //Stores data from the controller
             ArrayList<User> userList = (ArrayList<User>) request.getAttribute("Users");
             String msg = (String) request.getAttribute("msg");
             String id = (String) request.getAttribute("id");
@@ -31,7 +31,7 @@
                 <h>All Users</h>
             </div>
             <div class="row">
-                <a href="addUser.jsp" name="action" value="add"> Add User</a>
+                <a href="addUser.jsp" class="button" name="action" value="add"> Add User</a>
                 <div class="message">
                     <% if(msg != null){ %>
                         <u><b><%=msg%></b></u>  
@@ -41,6 +41,7 @@
             <div class="row">
                 <br>
                 <table>
+                    <!-- Table header -->
                     <tr>
                        <th> ID </th>
                        <th> Name</th>
@@ -60,6 +61,7 @@
                             <td>
                                 <%=user.getName()%>
                             </td>
+                            <!-- Checks for delete confirmation -->
                             <% if(user.getID().equals(id)){%>
                             <td colspan="5">
                                 Are you sure you want to delete this user?
@@ -84,10 +86,15 @@
                                 <a href="./deleteUser?id=<%=user.getID()%>" id="deleteBtn"> Delete </a>
                             </td>
                             <%}%>
-                        </tr>
+                            </tr>
                     <% }%>
                 </table>
-            </div>>
+            </div>
+            <div class="row">
+                <br>
+                    
+                <br>
+            </div>
         </div>
     </body>
 </html>

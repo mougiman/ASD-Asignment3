@@ -41,6 +41,7 @@
             </div>
             <div class="row">
                 <table>
+                    <!-- Table header -->
                     <tr>
                        <th> ID</th>
                        <th> Name </th>
@@ -57,6 +58,7 @@
                        
                     </tr>
                     
+                    <!-- Rows of items in a table -->
                     <% for(int i = 0; i < itemList.size();i++){Item item = itemList.get(i);%>
                         <tr>
                             <td>
@@ -65,6 +67,7 @@
                             <td>
                                 <%=item.getName()%>
                             </td>
+                            <!-- Checks for delete confirmation -->
                             <% if(item.getID().equals(id)){%>
                             <td colspan="5">
                                 Are you sure you want to delete this item?

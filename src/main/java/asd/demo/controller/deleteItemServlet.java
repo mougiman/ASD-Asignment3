@@ -32,10 +32,12 @@ public class deleteItemServlet extends HttpServlet {
             request.setAttribute("id", id);
             request.getRequestDispatcher("allItems.jsp").forward(request, response);
         }
+        else{
+            //Deletes item from database
+            connector.deleteItem(id);
+            request.setAttribute("msg", "Item " +  id + " has been removed.");
+            request.getRequestDispatcher("allItems.jsp").forward(request, response);
+        }
         
-        //Deletes item from database
-        connector.deleteItem(id);
-        request.setAttribute("msg", "Item " +  id + " has been removed.");
-        request.getRequestDispatcher("allItems.jsp").forward(request, response);
     }
 }

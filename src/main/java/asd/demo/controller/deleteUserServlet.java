@@ -32,10 +32,11 @@ public class deleteUserServlet extends HttpServlet {
             request.setAttribute("id", id);
             request.getRequestDispatcher("allUsers.jsp").forward(request, response);
         }
-        
-        //Deletes user from database
-        connector.deleteUser(id);
-        request.setAttribute("msg", "User " + id + " has been deleted.");
-        request.getRequestDispatcher("allUsers.jsp").forward(request, response);
+        else{
+            //Deletes user from database
+            connector.deleteUser(id);
+            request.setAttribute("msg", "User " + id + " has been deleted.");
+            request.getRequestDispatcher("allUsers.jsp").forward(request, response);
+        }
     }
 }
