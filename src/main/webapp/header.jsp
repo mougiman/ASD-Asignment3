@@ -50,7 +50,6 @@
             <a href=".\" class="links">Home</a> <!--- Links back to index --->
             <a href="listItem.jsp" class="links">List an Item</a>
             <a href="Auction.jsp" class="links">Auction a Product</a>
-            <a href=".\admin" class="links"> Administration </a>
 
             <% } %>
         </span>
@@ -59,6 +58,7 @@
             <a href="./profile?id=<%=user.getID()%>"> <%=user.getEmail()%>'s Profile</a>               
             <a href="cart.jsp">Cart</a>
             <a href="logout.jsp">Logout</a>
+            <a href="./watchlist?id=<%=user.getID()%>"></a>
             <% } else { %>                      
             <a href="login.jsp" class="links">Log In</a>
             <a href="register.jsp" class="links" >Register</a>

@@ -605,14 +605,14 @@ public class MongoDBConnector {
         ItemList WatchList = new ItemList();
 
         for (Document doc : WL.find()) {
-            String id = "11111111"; //(String)(doc.get("UserID"));
+            String id = (String)(doc.get("UserID"));
             if (UID.equals(id)) {
-
                 WatchList = getWL((String) doc.get("ProductID"));
-
             }
         }
         return WatchList;
     }
 
+    
+    
 }

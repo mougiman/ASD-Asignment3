@@ -1,3 +1,4 @@
+<%@page import="asd.demo.model.User"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="asd.demo.model.dao.MongoDBConnector"%>
@@ -66,13 +67,17 @@
     </head>
     <jsp:include page="header.jsp"/>
     <body>
-        <%     MongoDBConnector connector = new MongoDBConnector();
-            LocalDate now = LocalDate.now();
-            String date = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-            String expdate = request.getParameter("expdate");
 
-            String itemName = request.getParameter("itemName");
-            if (itemName == null) {
+        <%
+            User user = (User) session.getAttribute("userLogin");
+            if (user != null) {
+                MongoDBConnector connector = new MongoDBConnector();
+                LocalDate now = LocalDate.now();
+                String date = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                String expdate = request.getParameter("expdate");
+
+                String itemName = request.getParameter("itemName");
+                if (itemName == null) {
 
         %>
 
@@ -173,7 +178,7 @@
             int itemQuantity = Integer.parseInt(request.getParameter("itemQ"));
             String expdate1 = request.getParameter("expdate");
 
-            String itemSellerID = "11111111";
+            String itemSellerID = user.getID();
             Random rand = new Random();
             String itemID = "" + rand.nextInt(999999999);
             boolean ifAuc = true;
@@ -187,6 +192,14 @@
 
         <%
             }
+
+        } else {
+        %>
+        <p>You must be logged in to list an item</p>
+        <p>Log in <a href="login.jsp">here</a></p>
+        <p>Register a new account <a href="register.jsp">here</a></p>
+        <%
+            }        
         %>
 
     </body>
