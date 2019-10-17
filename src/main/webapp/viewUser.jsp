@@ -87,7 +87,7 @@
             }}else{
         %>
         <div class="alert alert-danger">          
-        <h2><strong>You must be logged in to User Profile page</strong>/h2>
+        <h2><strong>You must be logged in to User Profile page</strong></h2>
             </div>
         <h3>Log in <a href="login.jsp">here</a></h3>
         <h3>Register a new account <a href="register.jsp">here</a></h3>
