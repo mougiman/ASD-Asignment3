@@ -57,7 +57,7 @@
             <% if (user != null) {
                     if (user.getIsAdmin()) {
             %>	
-            <a href=".\admin?id=<%user.getID()%>" class="links"> Administration </a>
+            <a href=".\admin?id=<%=user.getID()%>" class="links"> Administration </a>
             <% 
                 }
             %>
