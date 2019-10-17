@@ -38,16 +38,17 @@ public class ReviewMadeController extends HttpServlet {
         String DateListed = "" + java.time.LocalDate.now();
         //This function add reviews to database
 
+        Review review = new Review(id, itemid, userid, desc, title, DateListed);
+        
         String errMsg = "";
         request.setAttribute("err", errMsg);
         //Error checks
-        if (title == null) {
+        if (review == null) {
             errMsg = "Item for Review not found, Please look for another Item to Review.";
             request.setAttribute("err", errMsg);
         } else {
             //request.setAttribute("rating", rating);
-            connector.addReview(id, itemid, userid, desc, title, DateListed);
-
+            connector.addReview2(review);
         }
         request.getRequestDispatcher("./item?id=" + itemid).forward(request, response);
     }

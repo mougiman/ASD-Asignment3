@@ -90,6 +90,16 @@ public class MongoDBConnector {
                 append("ItemID", ItemID);
         reviews.insertOne(document);
     }
+    
+        public void addReview2(Review review) {
+        Document document = new Document("id", review.getID()).
+                append("UserID", review.getUserID()).
+                append("Desc", review.getDesc()).
+                append("Title", review.getTitle()).
+                append("DateListed", review.getDateListed()).
+                append("ItemID", review.getItemID());
+        reviews.insertOne(document);
+    }
 
     public void addRating(Rating rated) {
         Document document = new Document("id", rated.getID()).

@@ -42,18 +42,18 @@
                 </div>                        
                 <input type="HIDDEN" name="rated" value="<%=user.getID()%>">
                 <input type="HIDDEN" name="id" value="<%=user.getID()%>">
-                  <%
-                    User user2 = (User) session.getAttribute("userLogin"); 
-                   if (user2 != null){  
-                    %>
+                <%
+                    User user2 = (User) session.getAttribute("userLogin");
+                    if (user2 != null) {
+                %>
                 <input type="HIDDEN" name="rater" value="<%=user2.getID()%>">
                 <%
-                    }else{
+                } else {
                 %>
                 <input type="HIDDEN" name="rater" value="11111111">
                 <%
                     }
-                    %>
+                %>
                 <div class="pure-controls">
                     <button type="submit" class="pure-button pure-button-primary">Submit</button>
                 </div>
@@ -62,12 +62,8 @@
         <%
         } else if (rating != null) {
             connector.addRating(rating);
-
-        %>
-        <h2>Thank you for your Rating</h2>
-        <a href=".\">Return to main page</a>
-           <a href="./profile?id=<%=rating.getSellerID()%>">Return to user <%=connector.getusername(rating.getSellerID())%>'s page</a>
-        <%
+            String redirect = "profile./?id=" + user.getID();
+            response.sendRedirect(redirect);
         } else {
         %>
         <h2>Something went wrong!</h2>

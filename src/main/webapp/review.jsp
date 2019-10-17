@@ -4,6 +4,7 @@
     Author     : mougi
 --%>
 
+<%@page import="asd.demo.model.Review"%>
 <%@page import="asd.demo.model.User"%>
 <%@page import="java.util.Random"%>
 <%@page import="asd.demo.model.Item"%>
@@ -20,14 +21,17 @@
     <body>  
         <jsp:include page="header.jsp"/>  
         <%
+            //User user = (User) request.getAttribute("user");
             Item item = (Item) request.getAttribute("item");
-            String error = (String) request.getAttribute("err");
+            Review review = (Review) request.getAttribute("review");
+
+            //String error = (String) request.getAttribute("err");
             MongoDBConnector connector = new MongoDBConnector();
             if (item != null) {
                 //This pulls parametes from the item page, so that the listed review contains the right ItemId
                 String itemid = item.getID();
-               
-%>
+
+        %>
         <h1>Review of <%=item.getName()%></h1>
         <form class="pure-form pure-form-aligned formbox" action="./review?id=<%=item.getID()%>">
             <fieldset>
@@ -47,6 +51,11 @@
                 %>
                 <input type="HIDDEN" name="userid" value="11111111">
                 <%
+                } else if (review != null) {
+                      connector.addReview2(review);
+                    String redirect = "./item?id=" + item.getID();
+                    response.sendRedirect(redirect);
+
                 } else {
                 %>
                 <input type="HIDDEN" name="userid" value="<%=user2.getID()%>">
@@ -60,7 +69,7 @@
             </fieldset>
         </form>
         <%
-           
+
         } else {
             //display failure message
         %>
