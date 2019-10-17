@@ -1,11 +1,10 @@
 /*
- * Test the Login function using selenium and cucumber acceptance testing 
+ * Test the view profile function using selenium and cucumber acceptance testing 
  */
-package asd.demo.test;
 
 /**
  *
- * @author Calvin
+ * @author Changkeun Hyun
  */
 import org.openqa.selenium.By;
 import cucumber.api.java.en.Given;
