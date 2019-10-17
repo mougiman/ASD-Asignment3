@@ -11,7 +11,7 @@
 <html>
     <head>
         <title>Item Page</title>
-        <link rel="stylesheet" href="css/ASDStyle.css">
+        <link rel="stylesheet" href="css/BetterASDStyle.css">
     </head>
     <body>  
         <jsp:include page="header.jsp"/>    

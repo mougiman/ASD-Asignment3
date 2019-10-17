@@ -8,7 +8,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>User Profile</title>
-        <link rel="stylesheet" href="css/ASDStyle.css">
+        <link rel="stylesheet" href="css/BetterASDStyle.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     </head>
     <jsp:include page="header.jsp"/>
@@ -56,30 +56,30 @@
                     </table>       
                 </div>
                 <div>
-                    <div>
-                    <!-- Rating  user-->
-                    <h2>User Ratings</h2>
-                    <a href="./rating?id=<%=user.getID()%>">Leave a Rating</a>
-                    </div>
-                    <%
-                        ArrayList<Rating> ratings = connector.getUserRatings(user.getID());
-                        for (Rating rating : ratings) {
-                    %>
-                    <div class="reviewbox">
-                        <h3><%=rating.getTitle()%></h3>
-                        <h5>Date Listed: <%=rating.getDateListed()%></h5>
-                        <h5>Score: <%=rating.getScore()%>/5.0</h5>
-                        <h5>by <%=connector.getusername(rating.getUserID())%></h5>
-                        <h4><%=rating.getDesc()%></h4>
-                    </div>
-                </div>
-                <%
-                    }
-                %>
+                </div> <!-- col-sm-12 -->
+            </div><!-- row -->
+            <div>
+                <!-- Rating  user-->
+                <h2>User Ratings</h2>
+                <a href="./rating?id=<%=user.getID()%>">Leave a Rating</a>
+            </div>
+            <%
+                ArrayList<Rating> ratings = connector.getUserRatings(user.getID());
+                for (Rating rating : ratings) {
+            %>
+            <div class="reviewbox">
+                <h3><%=rating.getTitle()%></h3>
+                <h5>Date Listed: <%=rating.getDateListed()%></h5>
+                <h5>Score: <%=rating.getScore()%>/5.0</h5>
+                <h5>by <%=connector.getusername(rating.getUserID())%></h5>
+                <h4><%=rating.getDesc()%></h4>
+            </div>
 
-                <% }%>
-            </div> <!-- col-sm-12 -->
-        </div><!-- row -->
+            <%
+                }
+            %>
+        </div>
+        <% }%>
     </body>
 </html>    
 
