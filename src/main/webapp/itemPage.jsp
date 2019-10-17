@@ -78,7 +78,7 @@
                 <div class="col">
                     <div class="userBox">
                         <div><u> User Info </u></div>
-                        <div> Listed User : <a href="./profile?id=<%=item.getSellerID()%>" ><%=connector.getusername(item.getSellerID())%></a></div>                 
+                        <div> Listed User : <a class="sellerprofile" href="./profile?id=<%=item.getSellerID()%>" ><%=connector.getusername(item.getSellerID())%></a></div>                 
                         <div> Listed Date: <%=item.getDateListed()%> </div>
                     </div>
                 </div> 
