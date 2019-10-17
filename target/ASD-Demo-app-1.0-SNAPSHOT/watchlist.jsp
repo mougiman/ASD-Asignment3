@@ -17,13 +17,14 @@
     </head>
 
     <body>        
+        <jsp:include page="./header.jsp"/>
+
         <%  // This is code in relation to the local database
             ArrayList<Item> items = (ArrayList<Item>) request.getAttribute("items");
             if (items.isEmpty()) {
         %>  
         <p>nothing in watchlist</p>
         <%  } else { %> 
-        <jsp:include page="./header.jsp"/>
         <div class="container">
             <div class="row">
                 <h> Watchlist </h>
@@ -32,7 +33,7 @@
                 <div class="itemList">              
                     <div class="row">
                         <%for (int i = 0; i < items.size(); i++) {
-                                    Item item = items.get(i);%>
+                                Item item = items.get(i);%>
                         <a href="./item?id=<%=item.getID()%>" class="itemCard">
                             <div class="imageContainer">
                                 <span class="helper"></span>

@@ -58,7 +58,7 @@
             <a href="./profile?id=<%=user.getID()%>"> <%=user.getEmail()%>'s Profile</a>               
             <a href="cart.jsp">Cart</a>
             <a href="logout.jsp">Logout</a>
-            <a href="./watchlist?id=<%=user.getID()%>"></a>
+            <a href="./watchlist?id=<%=user.getID()%>">Watchlist</a>
             <% } else { %>                      
             <a href="login.jsp" class="links">Log In</a>
             <a href="register.jsp" class="links" >Register</a>
