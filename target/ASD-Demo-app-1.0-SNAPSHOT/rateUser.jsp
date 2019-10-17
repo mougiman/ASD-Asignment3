@@ -61,7 +61,6 @@
         </form>
         <%
         } else if (rating != null) {
-            connector.addRating(rating);
             String redirect = "profile./?id=" + user.getID();
             response.sendRedirect(redirect);
         } else {

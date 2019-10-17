@@ -17,7 +17,7 @@
 
     <div class="title">
         <div style="display: inline-block">
-            <h2 style="size: 160px">Sell n' Buy</h2>
+            <p style="size: 160px">Sell n' Buy</p>
         </div>
         <div class="searchbar">
             <form action="./home">

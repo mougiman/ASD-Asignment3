@@ -33,7 +33,7 @@
 
         %>
         <h1>Review of <%=item.getName()%></h1>
-        <form class="pure-form pure-form-aligned formbox" action="./review?id=<%=item.getID()%>">
+        <form class="pure-form pure-form-aligned formbox" action="./reviewMade">
             <fieldset>
                 <div class="pure-control-group">
                     <label for="">Review Title:</label>
