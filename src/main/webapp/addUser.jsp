@@ -3,15 +3,26 @@
     Created on : 28/09/2019, 12:05:25 PM
     Author     : Calvin
 --%>
-<%@page import="java.util.ArrayList"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="asd.demo.model.*"%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
             
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>All Users</title>
+        <title>Add User</title>
+        <link rel="stylesheet" href="css/BetterASDStyle.css">
+        
+        
+    </head>
+    
+    <body>
+        <jsp:include page="header.jsp"/>    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/BetterASDStyle.css">
     </head>
     <body>
@@ -20,7 +31,7 @@
         %>
         
         <div class="row2">
-            <h1>Create an account</h1>
+            <h>Create an account<h1>
         </div>
         <div class="row2">
             <% if(errors != null){ %>
