@@ -104,6 +104,14 @@ a{
     line-height: 30px; 
 }
 	
+.row2{
+    padding: 10px 0px 10px 20px;
+    background-color: lightblue;
+    flex:none;
+    text-align: center;
+}
+
+
 .userBox{
     width: 30%;
     margin: auto;
@@ -128,9 +136,11 @@ a.button{
     text-decoration: none;
     color:#00ad5f !important;
 }
+
 a.button:hover{
     background-color: #393939;
 }
+
 table{
     width: 100%;
     border-collapse: collapse;   
@@ -287,16 +297,4 @@ h2{
     color: red;
     font: bold;
 	font-size: 20px;
-}
-
-.row2{
-    padding: 10px 0px 10px 20px;
-    background-color: #dadee1;
-    
-    text-align: center;
-}
-
-.formBox{
-    flex:none;
-    border: 2px solid black;
 }

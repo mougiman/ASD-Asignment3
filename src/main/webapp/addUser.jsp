@@ -31,16 +31,20 @@
         %>
         
         <div class="row2">
-            <h>Create an account<h1>
+            <br>
+            <br>
+            <h>Create an account</h>
         </div>
-        <div class="row2">
-            <% if(errors != null){ %>
+        
+        <% if(errors != null){ %>
+            <div class="row2">
             The following issues were found:
             <% for(int i = 0; i < errors.size(); i++){ 
                 String msg = errors.get(i); %>
                 <div> <%=msg%> </div>
-            <%}}%>
-        </div>
+            </div>
+        <%}}%>
+        
         <div class="row2">
             <div class="addBox">
                 <form method="get" action="addUser">

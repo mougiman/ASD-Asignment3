@@ -50,9 +50,10 @@ public class addUserServlet extends HttpServlet {
         }
         
         Boolean isAdmin;
+        String admin = request.getParameter("admin");
         //Shows true if admin checkbox is checked
-        if(request.getParameter("admin").equals("on")){
-            isAdmin = true;
+        if(admin != null){
+             isAdmin = true;
         }
         else{
             isAdmin = false;
@@ -67,7 +68,7 @@ public class addUserServlet extends HttpServlet {
             connector.addAUser(id, name, email, password, phone, isAdmin);
 
             //Setting Success Message
-            String message = name + "has been Successfully Registered";
+            String message = name + " has been Successfully Registered";
             request.setAttribute("msg", message);   
         }
         ArrayList<User> users = connector.getUserList().getList();
