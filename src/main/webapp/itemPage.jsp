@@ -57,22 +57,23 @@
                     <%}%>
                 </div>    
 
+                <!--Like/Dislike Button-->
+                <div class="col">
+                    <%if (connector.check("11111111", item.getID())) {%>
+                    <form method="post" action="delete.jsp" >
+                        <div>  <input type="hidden" name="id" value = "<%=item.getID()%>"</div>
+                        <input type = submit value = "dislike">
+                    </form>
+                    <%} else {%>
 
-                <%if (connector.check("11111111", item.getID())) {%>
-                <form method="post" action="delete.jsp" >
-                    <div>  <input type="hidden" name="id" value = "<%=item.getID()%>"</div>
-                    <input type = submit value = "dislike">
-                </form>
-                <%} else {%>
-
-                <form method="post" action="add.jsp" >
-                    <div>  <input type="hidden" name="id" value = "<%=item.getID()%>"</div>
-                    <input type = submit value = "Like">
-                    </div>
-                </form>               
-                <% }
-                %>
-
+                    <form method="post" action="add.jsp" >
+                        <div>  <input type="hidden" name="id" value = "<%=item.getID()%>"</div>
+                        <input type = submit value = "Like">
+                        </div>
+                    </form>               
+                    <% }
+                    %>
+                </div>
 
                 <!--Shows the seller info of item-->
                 <div class="col">
@@ -92,7 +93,7 @@
                     ArrayList<Review> reviews = connector.getItemReviews(item.getID());
                     for (Review review : reviews) {
                         //Displays review Title, links to reviewer page and review Description
-%>
+                %>
                 <div class="reviewbox">
                     <h3><%=review.getTitle()%></h3>
                     <h5>by <a href="./profile?id=<%=review.getUserID()%>"><%=connector.getusername(review.getUserID())%></a></h5>

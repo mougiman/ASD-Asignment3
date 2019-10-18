@@ -61,7 +61,7 @@
                 <div>
                 </div> <!-- col-sm-12 -->
             </div><!-- row -->
-            <div>
+            <div class="text-center">
                 <!-- Rating  user-->
                 <h2>User Ratings</h2>
                 <a href="./rating?id=<%=user.getID()%>">Leave a Rating</a>

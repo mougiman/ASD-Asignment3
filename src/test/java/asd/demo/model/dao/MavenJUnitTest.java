@@ -34,7 +34,8 @@ public class MavenJUnitTest {
         System.out.println("\n<-- Starting Unit test -->");
         mdb = new MongoDBConnector();
     }
-/*
+
+    /*
     @Test
     public void testMongoDBConnect() throws UnknownHostException {
         Assert.assertNotNull("Cannot establish connection to MDB", mdb);
@@ -67,14 +68,7 @@ public class MavenJUnitTest {
         mdb.showadummyitem("" + dummyId);
     }
 
-    @Test
-    public void fetchReviews() {
-        ArrayList<Review> reviews = mdb.getAllReviews();
-        Assert.assertNotNull("Cannot fetch ASD reviews", reviews);
-        System.out.println("\nFetching ASD reviews (Alex)...");
-        System.out.println("-------------------------------------");
-        mdb.showreviews(reviews);
-    }
+
 
     @Test
     public void listDummyUser() {
@@ -129,13 +123,34 @@ public class MavenJUnitTest {
         mdb.showUserExists();
     }
 
+     */
+
+    @Test
+    public void fetchReviews() {
+        ArrayList<Review> reviews = mdb.getAllReviews();
+        Assert.assertNotNull("Cannot fetch ASD reviews", reviews);
+        System.out.println("\nFetching ASD reviews (Alex)...");
+        System.out.println("-------------------------------------");
+        mdb.showreviews(reviews);
+    }
+    
     @Test
     public void fetchUserInfo() {
-        System.out.println("Checking ASD users info (Zhengyang)...");
+        System.out.println("Checking ASD users info as an admin(Calvin)...");
         System.out.println("-------------------------------------");
         mdb.showUsersinfo();
     }
-*/
+    
+    @Test
+    public void fetchAucItemsBid() {
+        ItemList items = mdb.getItemList();
+        Assert.assertNotNull("Cannot fetch ASD liked items anon", items);
+        System.out.println("\nFetching ASD liked items of anon (Weize)...");
+        System.out.println("-------------------------------------");
+        mdb.showAnonLikes();
+    }
+    
+    
     @AfterClass
     public static void tearDownClass() {
         System.out.print("\n<-- Unit Test Finished : ");

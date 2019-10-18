@@ -305,7 +305,15 @@ public class MongoDBConnector {
 
     public void showreviews(ArrayList<Review> reviews) {
         for (Review review : reviews) {
+          
             System.out.println(review.getTitle());
+        }
+    }
+    
+    public void showAnonLikes () {
+        for (Document doc : WL.find()) {
+            if(doc.get("UserID").equals("11111111"))
+            System.out.println(""+doc.get("ProductID"));
         }
     }
 
@@ -319,8 +327,9 @@ public class MongoDBConnector {
         }
         return reviews;
     }
+    
+    
     //Search items by keyword from Item Collection
-
     public ItemList searchItemList(String query) {
         ItemList searchList = new ItemList();
         for (Document doc : dbItems.find()) {
