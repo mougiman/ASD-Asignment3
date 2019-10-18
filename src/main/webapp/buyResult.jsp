@@ -26,7 +26,7 @@
                 if (error == null) {
             %>
             <h1>Success</h1>
-            <a href="header.jsp">Go Home</a>
+            <a href=".\">Go Home</a>
        <%
        }
        %>
