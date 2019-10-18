@@ -31,39 +31,41 @@
             <%}}%>
         </div>
         <div class="row2">
-            <form method="get" action="addUser">
-            <div class="signup">
-                <div class="inputbox">
-                    <label> ID: </label>
-                    <input type="number" name="id" required="">   
+            <div class="addBox">
+                <form method="get" action="addUser">
+                <div class="signup">
+                    <div class="inputbox">
+                        <label> ID: </label>
+                        <input type="number" name="id" required="">   
+                    </div>
+                    <div class="inputbox">
+                        <label>Full Name:</label>
+                        <input type="text" name="name" required="">   
+                    </div>
+                    <div class="inputbox">
+                        <label>Email:</label>
+                        <input type="text" name="email" required="">   
+                    </div>
+                    <div class="inputbox">
+                        <label>Password:</label>
+                        <input type="password" name="password" required="">   
+                    </div>
+                    <div class="inputbox">
+                        <label>Phone Number:</label>
+                        <input type="number" name="phone" required="">   
+                    </div>
+                    <div class="inputbox">
+                        <label>is Admin?</label>
+                        <input type="checkbox" name="admin" value="on">   
+                    </div>
                 </div>
-                <div class="inputbox">
-                    <label>Full Name:</label>
-                    <input type="text" name="name" required="">   
+                <div class="row2">
+                    <input type="submit" name="submitted" value="Register">
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="./users" class="btn1"> Back </a>
                 </div>
-                <div class="inputbox">
-                    <label>Email:</label>
-                    <input type="text" name="email" required="">   
-                </div>
-                <div class="inputbox">
-                    <label>Password:</label>
-                    <input type="password" name="password" required="">   
-                </div>
-                <div class="inputbox">
-                    <label>Phone Number:</label>
-                    <input type="number" name="phone" required="">   
-                </div>
-                <div class="inputbox">
-                    <label>is Admin?</label>
-                    <input type="checkbox" name="admin" value="on">   
-                </div>
+                </form>
             </div>
-            <div class="row2">
-                <input type="submit" name="submitted" value="Register">
-                &nbsp;&nbsp;&nbsp;
-                <a href="./users" class="btn1"> Back </a>
-            </div>
-            </form>
         </div>
     </body>
 </html>

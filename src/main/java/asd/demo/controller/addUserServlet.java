@@ -49,8 +49,14 @@ public class addUserServlet extends HttpServlet {
             errors.add("Phone number must be 10 numbers");
         }
         
+        Boolean isAdmin;
         //Shows true if admin checkbox is checked
-        Boolean isAdmin = request.getParameter("admin").equals("on");
+        if(request.getParameter("admin").equals("on")){
+            isAdmin = true;
+        }
+        else{
+            isAdmin = false;
+        }
         
         if(errors.size() > 0){
             request.setAttribute("errors", errors);
@@ -59,13 +65,13 @@ public class addUserServlet extends HttpServlet {
         else{
             //Adding new user to database
             connector.addAUser(id, name, email, password, phone, isAdmin);
-            ArrayList<User> users = connector.getUserList().getList();
-            request.setAttribute("Users", users);
 
             //Setting Success Message
             String message = name + "has been Successfully Registered";
-            request.setAttribute("msg", message);
-            request.getRequestDispatcher("allUsers.jsp").forward(request, response);
+            request.setAttribute("msg", message);   
         }
+        ArrayList<User> users = connector.getUserList().getList();
+        request.setAttribute("Users", users);
+        request.getRequestDispatcher("allUsers.jsp").forward(request, response);
     }
 }
