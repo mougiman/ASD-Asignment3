@@ -60,6 +60,7 @@ h{
 .navbar{
     background-color: #282828; 
     margin: auto;
+	width: 100%;
 }
 
 .container{
