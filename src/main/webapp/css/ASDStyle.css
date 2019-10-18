@@ -109,7 +109,7 @@ a.button{
     margin: 10px;
     background-color: #222222;
     text-decoration: none;
-    color:#00ad5f !important;
+    color:#00ad5f;
 }
 a.button:hover{
     background-color: #393939;
