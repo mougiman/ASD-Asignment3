@@ -44,8 +44,6 @@
             <a href=".\" class="links">Home</a> <!--- Links back to index --->
             <a href="listItem.jsp" class="links">List an Item</a>
             <a href="Auction.jsp" class="links">Auction a Product</a>
-            <a href=".\admin" class="links"> Administration </a>
-
             <% } else { %> 
             <a href=".\" class="links">Home</a> <!--- Links back to index --->
             <a href="listItem.jsp" class="links">List an Item</a>
@@ -57,7 +55,7 @@
             <% if (user != null) {
                     if (user.getIsAdmin()) {
             %>	
-            <a href=".\admin?id=<%=user.getID()%>" class="links"> Administration </a>
+            <a href="./admin?id=<%=user.getID()%>" class="links"> Administration </a>
             <% 
                 }
             %>
