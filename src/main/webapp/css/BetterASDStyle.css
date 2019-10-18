@@ -44,9 +44,8 @@ body{
 
 h{
     font-size: 32px;
-    width:40%;
-    color: #50575f;
-    padding: 0px 30px 10px 20px;
+    width:300px;
+    padding: 10px 30px 10px 20px;
 }
 
 .p-alt{
@@ -85,6 +84,8 @@ a{
 .row{
     padding: 20px 0px 0px 20px;
     display:flex;
+    background-color: #dadee1;
+	width: 100%;
 }
 
 .itemCard{
@@ -101,10 +102,7 @@ a{
     width: 100%;
     line-height: 30px; 
 }
-
-
-
-
+	
 .userBox{
     width: 30%;
     margin: auto;
@@ -119,7 +117,7 @@ a{
     width:100%;
     text-align: center;
     padding: 20px 40px 10px 0px;
-    background-color: grey;
+    background-color: #dadee1;
 }
 
 a.button{
@@ -131,10 +129,37 @@ a.button{
     color: initial;
 }
 
-table, th, td{
-    border:2px solid black;
-    padding: 5px;
+table{
+    width: 100%;
+    border-collapse: collapse;   
+    table-layout: fixed;
 }
+
+th {
+    text-align: left;
+    padding-left: 15px;
+    color: #00ad5f;
+    background-color: #393939;
+    line-height: 1.4;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    text-transform: uppercase;
+    word-wrap: break-word;
+    max-width: 8.3%;
+}
+
+td{
+    color: #808080;
+    background-color:#222222;
+    word-wrap: break-word;
+    padding-top: 16px;
+    padding-left: 15px;
+    padding-bottom: 16px;
+    overflow: hidden;
+    text-overflow: hidden;
+    max-width: 8.3%;
+}
+
 .itemCard > .imageContainer{
     width:200px;
     height:200px; 
@@ -241,4 +266,15 @@ h2{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+.searchBox{
+	padding: 20px 20px 20px 20px;
+    background-color:#282828;
+    width:500px;
+}
+.logo{
+	font-size:26px;
+	color: grey;
+	font-weight: bold;
 }

@@ -27,11 +27,16 @@ import javax.servlet.http.HttpSession;
 public class adminPageServlet extends HttpServlet {
    public void doGet(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException{
        
-       String id = (String) request.getAttribute("id");
-       MongoDBConnector connector = new MongoDBConnector();
-       User user = connector.getUser(id);
-       request.setAttribute("name", user.getName());
-       request.getRequestDispatcher("adminPage.jsp").forward(request, response);
-   
+            String id = (String) request.getParameter("id");
+            if(id != null){
+                MongoDBConnector connector = new MongoDBConnector();
+                User user = connector.getUser(id);
+                request.setAttribute("name", user.getName());
+                request.getRequestDispatcher("adminPage.jsp").forward(request, response);
+            }
+            else{
+                request.setAttribute("err","User not found");
+                request.getRequestDispatcher("adminPage.jsp").forward(request, response);
+            }
    }
 }

@@ -13,28 +13,10 @@
         <title>Barter-Mart</title>
         <link rel="stylesheet" href="css/BetterASDStyle.css">
     </header>
-
-
+    
     <div class="title">
         <div style="display: inline-block">
-            <p style="size: 160px">Sell n' Buy</p>
-        </div>
-        <div class="searchbar">
-            <form action="./home">
-                <div class="">
-                    <input type="text" name="searchText" style="width: 240px; height: 30px">
-                    <input type="submit" name="search" value="Search" class="searchbutton">
-                </div>
-                <br>
-                <input type="radio" name="searchType" value="item" style="size: 20px" checked > Search for Item </input>
-                <input type="radio" name="searchType" value="category" style="size: 20px" > Search for Category </input>                
-                <select name="sort"  style="color: black">
-                    <option value="null"> Sort By </option>
-                    <option value="lowToHigh"> Price - Low to High </option>
-                    <option value="highToLow"> Price - High to low </option>
-                </select>   
-                <br>
-            </form>
+            <p class="logo">Sell n' Buy</p>
         </div>
     </div>
     <% User user = (User) session.getAttribute("userLogin"); %>                                 
@@ -44,21 +26,20 @@
             <a href=".\" class="links">Home</a> <!--- Links back to index --->
             <a href="listItem.jsp" class="links">List an Item</a>
             <a href="Auction.jsp" class="links">Auction a Product</a>
+            
+            
             <% } else { %> 
             <a href=".\" class="links">Home</a> <!--- Links back to index --->
             <a href="listItem.jsp" class="links">List an Item</a>
             <a href="Auction.jsp" class="links">Auction a Product</a>
-
             <% } %>
         </span>
         <span class="rightalign">
             <% if (user != null) {
-                    if (user.getIsAdmin()) {
+                if (user.getIsAdmin()) {
             %>	
-            <a href="./admin?id=<%=user.getID()%>" class="links"> Administration </a>
-            <% 
-                }
-            %>
+                   <a href="./admin?id=<%=user.getID()%>" class="links"> Administration </a>
+                <% } %>
 
             <a href="./profile?id=<%=user.getID()%>"> <%=user.getEmail()%>'s Profile</a>               
             <a href="cart.jsp">Cart</a>
