@@ -46,6 +46,7 @@ h{
     font-size: 32px;
     width:300px;
     padding: 10px 30px 10px 20px;
+    font-weight: bold;
 }
 
 .p-alt{
@@ -297,4 +298,16 @@ h2{
     color: red;
     font: bold;
 	font-size: 20px;
+}
+
+.row2{
+    padding: 10px 0px 10px 20px;
+    background-color: #dadee1;
+    
+    text-align: center;
+}
+
+.formBox{
+    flex:none;
+    border: 2px solid black;
 }
