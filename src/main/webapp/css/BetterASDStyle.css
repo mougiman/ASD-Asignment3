@@ -121,15 +121,14 @@ a{
 }
 
 a.button{
-    padding: 10px 20px 10px 20px;
-    margin: 10px;
-    background-color: #222222;
+    padding: 20px 30px 20px 30px;
+    margin: 20px;
+
+
     text-decoration: none;
-    color:#00ad5f;
+    color: initial;
 }
-a.button:hover{
-    background-color: #393939;
-}
+
 table{
     width: 100%;
     border-collapse: collapse;   
@@ -278,4 +277,12 @@ h2{
 	font-size:26px;
 	color: grey;
 	font-weight: bold;
+}
+
+.message{
+    width:80%;
+    text-align: center;
+    color: red;
+    font: bold;
+	font-size: 20px;
 }
