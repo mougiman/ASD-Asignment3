@@ -36,7 +36,7 @@
             </div>
             <div class="col">
                 <a href="./users" class="button"> Manage users </a>
-                <a href="./allItems" class="button"> Manage listings </a>
+                <a href="./allItems" class="button" name="allItemsBtn"> Manage listings </a>
             </div>
                 <%}%>
         </div>

@@ -71,7 +71,7 @@
                             <% if(item.getID().equals(id)){%>
                             <td colspan="5">
                                 Are you sure you want to delete this item?
-                                <a href="./deleteItem?id=<%=id%>&confirm=true"> Yes </a>
+                                <a href="./deleteItem?id=<%=id%>&confirm=true" name="yes"> Yes </a>
                                     &nbsp;&nbsp;&nbsp;
                                 <a href="./allItems"> No </a>
                             </td>
@@ -108,7 +108,7 @@
                                     <%=item.getImage()%>
                             </td>
                             <td>
-                                <a href="./deleteItem?id=<%=item.getID()%>" id="deleteBtn"> Delete </a>
+                                <a href="./deleteItem?id=<%=item.getID()%>" name="deleteID<%=item.getID()%>"> Delete </a>
                             </td>
                             <% } %>
                         </tr>
