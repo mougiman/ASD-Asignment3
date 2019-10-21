@@ -14,7 +14,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>All Users</title>
-            <link rel="stylesheet" href="css/ASDStyle.css">
+            <link rel="stylesheet" href="css/BetterASDStyle.css">
     </head>
     
     <body>
@@ -69,9 +69,9 @@
                             </td>
                             <!-- Checks for delete confirmation -->
                             <% if(item.getID().equals(id)){%>
-                            <td colspan="5">
+                            <td colspan="10">
                                 Are you sure you want to delete this item?
-                                <a href="./deleteItem?id=<%=id%>&confirm=true"> Yes </a>
+                                <a href="./deleteItem?id=<%=id%>&confirm=true" name="yes"> Yes </a>
                                     &nbsp;&nbsp;&nbsp;
                                 <a href="./allItems"> No </a>
                             </td>
@@ -108,12 +108,14 @@
                                     <%=item.getImage()%>
                             </td>
                             <td>
-                                <a href="./deleteItem?id=<%=item.getID()%>" id="deleteBtn"> Delete </a>
+                                <a href="./deleteItem?id=<%=item.getID()%>" name="deleteID<%=item.getID()%>"> Delete </a>
                             </td>
                             <% } %>
                         </tr>
                     <% } %>
                 </table>
+            </div>
+            <div class="row" style="height:100px">  
             </div>
         </div>
     </body>

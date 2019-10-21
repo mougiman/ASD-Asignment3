@@ -14,7 +14,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>All Users</title>
-        <link rel="stylesheet" href="css/ASDStyle.css">
+        <link rel="stylesheet" href="css/BetterASDStyle.css">
         
         
     </head>
@@ -90,10 +90,7 @@
                     <% }%>
                 </table>
             </div>
-            <div class="row">
-                <br>
-                    
-                <br>
+            <div class="row" style="height:100px">  
             </div>
         </div>
     </body>

@@ -25,7 +25,26 @@
             </div>
             <!--Displays the search options available to the user-->
             <div class="row">
-
+                <div class="searchBox">
+                    <div class="searchbar">
+                    <form action="./home">
+                        <div class="">
+                            <input type="text" name="searchText" style="width: 240px; height: 30px">
+                            <input type="submit" name="search" value="Search" class="searchbutton">
+                        </div>
+                        <br>
+                        <input type="radio" name="searchType" value="item" style="size: 20px" checked > Search for Item </input>
+                        <input type="radio" name="searchType" value="category" style="size: 20px" > Search for Category </input>                
+                        <select name="sort"  style="color: black">
+                            <option value="null"> Sort By </option>
+                            <option value="lowToHigh"> Price - Low to High </option>
+                            <option value="highToLow"> Price - High to low </option>
+                        </select>   
+                        <br>
+                    </form>
+                    </div>
+                </div>    
+            </div>
             </div>
             <div class="row">
                 <!-- Error check-->

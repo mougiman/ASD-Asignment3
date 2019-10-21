@@ -124,7 +124,6 @@ public class MavenJUnitTest {
     }
 
      */
-
     @Test
     public void fetchReviews() {
         ArrayList<Review> reviews = mdb.getAllReviews();
@@ -133,24 +132,40 @@ public class MavenJUnitTest {
         System.out.println("-------------------------------------");
         mdb.showreviews(reviews);
     }
-    
+
     @Test
     public void fetchUserInfo() {
-        System.out.println("Checking ASD users info as an admin(Calvin)...");
+        System.out.println("Checking ASD users info(Chengkeun)...");
         System.out.println("-------------------------------------");
         mdb.showUsersinfo();
     }
-    
+
     @Test
-    public void fetchAucItemsBid() {
+    public void fetchAdminUsers() {
+        System.out.println("Checking ASD users for admin privs(Calvin)...");
+        System.out.println("-------------------------------------");
+        mdb.showAdminUsers();
+    }
+
+    @Test
+    public void fetchAnonLikes() {
         ItemList items = mdb.getItemList();
         Assert.assertNotNull("Cannot fetch ASD liked items anon", items);
         System.out.println("\nFetching ASD liked items of anon (Weize)...");
         System.out.println("-------------------------------------");
         mdb.showAnonLikes();
     }
-    
-    
+
+    @Test
+    public void fetchAnonCart() {
+        ItemList items = mdb.getItemList();
+        Assert.assertNotNull("Cannot fetch ASD liked items anon", items);
+        System.out.println("\nFetching ASD carted items of anon (Chenkun)...");
+        System.out.println("-------------------------------------");
+        System.out.println("The Anonymous Users Cart contains:");
+        mdb.showAnonCart();
+    }
+
     @AfterClass
     public static void tearDownClass() {
         System.out.print("\n<-- Unit Test Finished : ");

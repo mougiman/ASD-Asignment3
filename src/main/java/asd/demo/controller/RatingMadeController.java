@@ -47,7 +47,7 @@ public class RatingMadeController extends HttpServlet {
             errMsg = "User for Rating not found, Please look for another User to Rate.";
             request.setAttribute("err", errMsg);
         } else {
-            //request.setAttribute("rating", rating);
+            //set rating for upload via page
             connector.addRating(rating);
 
         }

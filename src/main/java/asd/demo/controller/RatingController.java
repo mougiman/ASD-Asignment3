@@ -31,9 +31,11 @@ public class RatingController extends HttpServlet {
         request.setAttribute("err", errMsg);
         //Error checks
         if (user == null) {
+            
             errMsg = "User for Rating not found, Please look for another User to Rate.";
             request.setAttribute("err", errMsg);
         }else {
+            //set user for rating
             request.setAttribute("user", user);
         }
         request.getRequestDispatcher("rateUser.jsp").forward(request, response);

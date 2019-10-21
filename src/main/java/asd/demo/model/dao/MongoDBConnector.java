@@ -286,6 +286,16 @@ public class MongoDBConnector {
             System.out.println("");
         }
     }
+    
+        public void showAdminUsers() {
+        List<Document> documents = (List<Document>) users.find().into(new ArrayList<Document>());
+        for (Document doc : documents) {
+            
+            if(doc.get("isAdmin").equals(true)){
+            System.out.println("Name: " + doc.get("name") + " is an admin");
+            }
+        }
+    }
 
     public void showAucitems(ItemList items) {
         for (Item item : items.getList()) {
@@ -307,6 +317,13 @@ public class MongoDBConnector {
         for (Review review : reviews) {
           
             System.out.println(review.getTitle());
+        }
+    }
+    
+    public void showAnonCart () {
+        for (Document doc : cart.find()) {
+            if(doc.get("userID").equals("11111111"))
+            System.out.println("Itemid: "+doc.get("itemID"));
         }
     }
     
