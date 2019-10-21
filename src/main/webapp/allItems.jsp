@@ -69,7 +69,7 @@
                             </td>
                             <!-- Checks for delete confirmation -->
                             <% if(item.getID().equals(id)){%>
-                            <td colspan="5">
+                            <td colspan="10">
                                 Are you sure you want to delete this item?
                                 <a href="./deleteItem?id=<%=id%>&confirm=true" name="yes"> Yes </a>
                                     &nbsp;&nbsp;&nbsp;

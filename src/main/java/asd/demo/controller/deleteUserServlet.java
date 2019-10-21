@@ -20,23 +20,27 @@ import javax.servlet.http.HttpServletResponse;
 public class deleteUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        //Grabs user list from database
+        
         MongoDBConnector connector = new MongoDBConnector();
-        ArrayList<User> users = connector.getUserList().getList();
-        request.setAttribute("Users", users);
-        
         String id = request.getParameter("id");
-        
+       
         //Validation for confirmation
         if(request.getParameter("confirm") == null){
             request.setAttribute("id", id);
-            request.getRequestDispatcher("allUsers.jsp").forward(request, response);
+            ArrayList<User> users = connector.getUserList().getList();
+			request.setAttribute("Users", users);
+			request.getRequestDispatcher("allUsers.jsp").forward(request, response);
         }
         else{
             //Deletes user from database
             connector.deleteUser(id);
             request.setAttribute("msg", "User " + id + " has been deleted.");
+			ArrayList<User> users = connector.getUserList().getList();
+			request.setAttribute("Users", users);
             request.getRequestDispatcher("allUsers.jsp").forward(request, response);
         }
+		
+		
+        
     }
 }
